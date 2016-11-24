@@ -7,7 +7,7 @@
 #destroy
 
 get '/' do 
-	redirect '/questions'
+  redirect '/questions'
 end
 
 get '/questions' do 
@@ -16,4 +16,9 @@ get '/questions' do
     question.created_at.strftime('%a %d %b %Y') 
   end
   erb :index
+end
+
+get '/questions/:id' do 
+  @question = Question.find(params[:id])
+  erb :show_question
 end

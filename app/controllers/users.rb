@@ -1,6 +1,6 @@
-get '/' do 
-	erb :home
-end
+# get '/' do 
+# 	erb :home
+# end
 
 post '/register' do
 	@user = User.new(params[:user])

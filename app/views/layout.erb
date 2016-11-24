@@ -26,7 +26,22 @@
   <header>
     <h1>DBC Overflow</h1>
     <p>
-      <a href = "#">Register</a>
+      <div class="register">  
+        <form action="/register" method="post">
+          <input type="text" name="user[user_name]" placeholder="Username">
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" value="Register">
+        </form>
+      </div>
+
+      <% if @errors %>
+        <span>Something went wrong:</span>
+        <ul class="error-list">
+          <% @errors.each do |error| %>
+            <li class="error-item"><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </p>
   </header>
   <%= yield %>

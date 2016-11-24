@@ -1,0 +1,12 @@
+<button id="upvote">^</button>
+<button id="downvote">v</button>
+<p id="points"><%= @question.votes.count %></button>
+
+<h3><%= @question.title %></h3>
+<p><%= @question.description %></p>
+
+<p>
+  <% @question.answers.to_a.each do |answer| %>
+
+  <% end %>
+</p>
