@@ -6,7 +6,7 @@ user3 = User.create(user_name: "tester_3", password: "123456")
 
 # Questions
 
-question1 = Question.create(title: "test question 1", description: "blah", user_id: 1)
+question1 = Question.create(title: "test question 1", description: "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ", user_id: 1)
 question2 = Question.create(title: "test question 2", description: "blah", user_id: 1)
 question3 = Question.create(title: "test question 3", description: "blah", user_id: 2)
 question4 = Question.create(title: "test question 4", description: "blah", user_id: 2)
@@ -15,7 +15,7 @@ question6 = Question.create(title: "test question 6", description: "blah", user_
 
 # Answers
 
-answer1 = Answer.create(description: "answer 1", user_id: 2, question_id: 1)
+answer1 = Answer.create(description: "answer 1", user_id: 2, question_id: 1, best_answer: 1)
 answer2 = Answer.create(description: "answer 2", user_id: 3, question_id: 1)
 answer3 = Answer.create(description: "answer 3", user_id: 2, question_id: 2)
 answer4 = Answer.create(description: "answer 4", user_id: 3, question_id: 2)
