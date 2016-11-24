@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.hash_password = @password
   end
+
+  def authenticate(plain_password)
+    self.password == plain_password
+  end
 end

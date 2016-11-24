@@ -1,0 +1,17 @@
+<h1>User Login</h1>
+<form action="/login" method="post">
+	<input type="text" name="username" placeholder="Username">
+	<br>
+	<input type="password" name="password" placeholder="Password">
+	<br>
+	<input type="submit" value="Login" color: black>
+</form>
+
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

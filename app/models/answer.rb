@@ -12,7 +12,8 @@ class Answer < ActiveRecord::Base
 
   def valid_user
     # creator of question cannot answer own question
-    if user_id == self.user.id
+    # changed the line below because it was comparing the user_id of the answer to the user id of the answer creator
+    if user_id == self.question.user.id
       return errors.add :user, "cannot answer their own questions"
     end
 
