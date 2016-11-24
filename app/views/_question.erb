@@ -1,6 +1,18 @@
 <article id="<%= question.id %>">
-  <h3><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
-  <p><%= question.description %></p>
-  <p><%= question.user.user_name %></p>
-  <p><%= question.created_at %></p>
+  <h3>
+    <a href='/questions/<%= question.id %>'>
+      <%= question.title %>
+    </a>
+  </h2>
+  <p class="description"><%= question.description %></p>
+  <p class="user_timestamp_container">
+  	<span class="user_name">
+  		<a href = "#">
+  			<%= question.user.user_name %>
+  		</a>
+  	</span>
+  	<span class="timestamp">
+  		on <%= @timestamps[i] %>	
+  	</span>
+  </p>
 </article>

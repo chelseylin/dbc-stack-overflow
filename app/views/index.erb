@@ -3,9 +3,7 @@
 
 <div class='question-container'>
 
-  <% @questions.each do |iteration_question| %>
-    
-    <%= erb(:_question, locals: {question: iteration_question}) %>
-
+  <% @questions.each_with_index do |iteration_question, i| %>
+    <%= erb(:_question, locals: {question: iteration_question, i: i}) %>
   <% end %>
 </div>
