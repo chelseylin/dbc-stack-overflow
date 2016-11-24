@@ -1,0 +1,11 @@
+<h2>Questions:</h2>
+<p><a href="#">Ask a Question</a></p>
+
+<div class='question-container'>
+
+  <% @questions.each do |iteration_question| %>
+    
+    <%= erb(:_question, locals: {question: iteration_question}) %>
+
+  <% end %>
+</div>
