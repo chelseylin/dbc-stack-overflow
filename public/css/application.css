@@ -41,6 +41,25 @@ h1, h2, h3 {
   font-family: 'Bree Serif', serif;
 }
 
+.register {
+  width: 215px;
+  height:100px;
+/*  float:right;
+  padding-right:20px;*/
+  position: absolute;
+  top: 70px;
+  left: 70%;
+}
+
+.register input {
+  padding:4px;
+  border-radius:5px;
+}
+
+.register input[type='submit'] {
+  float:right;
+}
+
 .page-container {
   min-height:500px;
 }
@@ -67,10 +86,24 @@ article {
   border-radius:3px;
 }
 
-.question-detail {
-  width:85%;
+.points {
+  display:block;
+  margin:0;
+}
+
+.question-detail, .answer-detail {
+  width:90%;
   float:left;
 }
+
+.question-clear {
+  clear:both;
+}
+
+/*.answer-detail {
+  float:left;
+  width: 85%;
+}*/
 
 .description {
   margin-left:10px;
@@ -80,26 +113,21 @@ article {
   text-align: right;
 }
 
-.points {
-  display:block;
-  margin:0;
-}
-
-.vote-buttons {
+.sidebar {
   float:left;
   text-align:center;
   width:35px;
   padding-right:20px;
 }
 
-.vote-buttons button {
+.sidebar button {
   background-color:white;
   border:none;
   color:gray;
 }
 
 .best-answer {
-  display:inline;
+/*  display:inline;*/
 }
 
 footer {
