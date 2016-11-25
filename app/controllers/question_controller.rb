@@ -18,11 +18,21 @@ get '/questions' do
   erb :index
 end
 
+get '/questions/new' do
+
+  erb :create_question
+end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @answers = Answer.where("question_id = '#{params[:id]}'")
   erb :question_and_answers
+end
+
+post '/questions/new' do
+  @question = Question.create!(title: params[:title], description: params[:description], user_id: session[:user_id])
+
+  redirect '/questions'
 end
 
 post '/questions/:id' do
@@ -41,20 +51,10 @@ post '/questions/:id' do
   end
 end
 
-get '/questions/new' do
-
-  erb :create_question
-end
-
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @answers = Answer.where("question_id = '#{params[:id]}'")
   erb :show_question
 end
 
-post '/questions/new' do
-  @question = Question.create!(title: params[:title], description: params[:description], user_id: session[:user_id])
-
-  redirect '/questions'
-end
 
