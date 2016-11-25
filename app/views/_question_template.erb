@@ -10,14 +10,20 @@
     </h3>
     <p class="description"><%= question.description %></p>
     <p class="user_timestamp_container">
+      <span class="button">
+        <form action="questions/<%= question.id %>" method="get">
+          <input type="submit" value="ANSWER">
+        </form>
+      </span>
     	<span class="user_name">
     		<a href = "#">
     			<%= question.user.user_name %>
     		</a>
     	</span>
     	<span class="timestamp">
-    		on <%= @timestamps[i] %>	
+    		on <%= @timestamps[i] %>
     	</span>
     </p>
   </span>
+  </
 </article>

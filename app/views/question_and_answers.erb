@@ -44,7 +44,16 @@
       </span>
     </p>
   </div>
-<% end %>
+  <!-- ends loop -->
+  <% end %>
+
+  <div class="answer-text-box">
+    <form method="post" action="/question/<%= @question.id %>/answers">
+      <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
+      <input type="submit" value="Post your Answer">
+    </form>
+  </div>
+
 
 
 
