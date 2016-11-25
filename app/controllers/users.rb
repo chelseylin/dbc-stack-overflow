@@ -1,11 +1,11 @@
-# get '/' do 
+# get '/' do
 # 	erb :home
 # end
 
 post '/register' do
 	@user = User.new(params[:user])
   @user.password = params[:password]
- 
+
   if @user.save
   	session[:user_id] = @user.id
     redirect '/profile'
@@ -31,10 +31,11 @@ post '/login' do
 end
 
 get '/profile' do
+  @user = User.find(session[:user_id])
 	erb :user_profile
 end
 
-get '/logout' do 
+get '/logout' do
   session.delete(:user_id)
   redirect '/'
 end
