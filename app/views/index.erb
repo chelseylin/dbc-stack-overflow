@@ -1,8 +1,26 @@
+<p>
+  <div class="register">  
+    <form action="/register" method="post">
+      <input type="text" name="user[user_name]" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <% if @errors %>
+    <span>Something went wrong:</span>
+    <ul class="error-list">
+      <% @errors.each do |error| %>
+        <li class="error-item"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
 <h2>Questions:</h2>
 <p><a href="#">Ask a Question</a></p>
 
 <div class='question-container'>
-
   <% @questions.each_with_index do |iteration_question, i| %>
     <%= erb(:_question, locals: {question: iteration_question, i: i}) %>
   <% end %>

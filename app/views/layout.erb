@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans" rel="stylesheet">
   <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -20,31 +21,19 @@
 <body>
   <nav>
     <ul>
-      <li>Log In</li>
+      <% if !session[:user_id] %>
+        <li><a href="/login">Log In</a></li>
+      <% else %>
+        <li>(username goes here)</li>
+      <% end %>
     </ul>
   </nav>
   <header>
     <h1>DBC Overflow</h1>
-    <p>
-      <div class="register">  
-        <form action="/register" method="post">
-          <input type="text" name="user[user_name]" placeholder="Username">
-          <input type="password" name="password" placeholder="Password">
-          <input type="submit" value="Register">
-        </form>
-      </div>
-
-      <% if @errors %>
-        <span>Something went wrong:</span>
-        <ul class="error-list">
-          <% @errors.each do |error| %>
-            <li class="error-item"><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </p>
   </header>
-  <%= yield %>
-  <footer>Some Text Here</footer>
+  <div class = "page-container">
+    <%= yield %>
+  </div>
+  <footer>Some Text Here | More Text | Even More Text</footer>
 </body>
 </html>

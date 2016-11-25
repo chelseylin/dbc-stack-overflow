@@ -5,8 +5,15 @@
 <h3><%= @question.title %></h3>
 <p><%= @question.description %></p>
 
-<p>
-  <% @question.answers.to_a.each do |answer| %>
+<% @answers.to_a.each do |answer| %>
+	<p>
+    <%= answer.description %>
+	</p>
+  <p class = "user_timestamp_container">
+    <span>
+      <%= answer.user.user_name %>
+    </span>
+  </p>
+<% end %>
 
-  <% end %>
-</p>
+
