@@ -11,7 +11,7 @@ post '/register' do
     redirect '/profile'
   else
     @errors = @user.errors.full_messages
-    erb :home
+    erb :index
   end
 end
 
@@ -32,4 +32,9 @@ end
 
 get '/profile' do
 	erb :user_profile
+end
+
+get '/logout' do 
+  session.delete(:user_id)
+  redirect '/'
 end

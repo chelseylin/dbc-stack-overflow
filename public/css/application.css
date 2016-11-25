@@ -9,7 +9,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  opacity: .9;
+  opacity: .8;
   z-index: 3;
   padding: 0px;
 }
@@ -22,6 +22,8 @@ nav ul {
 }
 
 nav li {
+  display:inline;
+  color:white;
   margin-right:10px;
   margin-top:-10px;
 }
@@ -48,12 +50,11 @@ h1, h2, h3 {
 }
 
 article {
-  /*width:80%;*/
   margin:auto;
   clear:both;
 }
 
-.vote-count {
+.vote-count, .points {
   font-size:150%;
   margin-top:20px;
   width:35px;
@@ -67,7 +68,7 @@ article {
 }
 
 .question-detail {
-  width:80%;
+  width:85%;
   float:left;
 }
 
@@ -77,6 +78,28 @@ article {
 
 .user_timestamp_container {
   text-align: right;
+}
+
+.points {
+  display:block;
+  margin:0;
+}
+
+.vote-buttons {
+  float:left;
+  text-align:center;
+  width:35px;
+  padding-right:20px;
+}
+
+.vote-buttons button {
+  background-color:white;
+  border:none;
+  color:gray;
+}
+
+.best-answer {
+  display:inline;
 }
 
 footer {

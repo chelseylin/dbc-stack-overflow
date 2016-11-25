@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans" rel="stylesheet">
+  <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -24,12 +25,20 @@
       <% if !session[:user_id] %>
         <li><a href="/login">Log In</a></li>
       <% else %>
-        <li>(username goes here)</li>
+        <li>
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </li>
+        <li>
+          <a href="/profile">
+            <%= User.find(session[:user_id]).user_name %>
+          </a>
+        </li>
+        <li><a href="/logout">Log Out</a></li>
       <% end %>
     </ul>
   </nav>
   <header>
-    <h1>DBC Overflow</h1>
+    <a href="/"><h1>DBC Overflow</h1></a>
   </header>
   <div class = "page-container">
     <%= yield %>
