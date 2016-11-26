@@ -4,7 +4,7 @@
     <form action="/register" method="post">
       <input type="text" name="user[user_name]" placeholder="Username">
       <input type="password" name="password" placeholder="Password">
-      <input type="submit" value="Register">
+      <input type="submit" value="Register" class="blue-button">
     </form>
   </div>
 <%end%>
@@ -18,8 +18,9 @@
   <% end %>
 </p>
 
-<h2>Questions:</h2>
-<p><a href="/questions/new">Ask a Question</a></p>
+<h2 style = "float:left">Questions:</h2>
+<button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
+<div class="float-clear"></div>
 
 <div class='question-container'>
   <% @questions.each_with_index do |iteration_question, i| %>

@@ -10,11 +10,11 @@
     </h3>
     <p class="description"><%= question.description %></p>
     <p class="user_timestamp_container">
-      <span class="button">
+     <!--  <button> -->
         <form action="questions/<%= question.id %>" method="get">
-          <input type="submit" value="ANSWER">
+          <input type="submit" value="answer" class="styled-button">
         </form>
-      </span>
+      <!-- </button> -->
     	<span class="user_name">
     		<a href = "#">
     			<%= question.user.user_name %>

@@ -1,23 +1,23 @@
 <div class = "question-container" id = "<%=@question.id%>">
-<div class="sidebar">
-  <button id="upvote">
-  	<i class="fa fa-chevron-up" aria-hidden="true"></i>
-  </button>
+  <div class="sidebar">
+    <button id="upvote">
+    	<i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
 
-  <span class="points"><%= @question.vote_count %></span>
+    <span class="points"><%= @question.vote_count %></span>
 
-  <button id="downvote">
-    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-  </button>
+    <button id="downvote">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </button>
+  </div>
 
+  <div class = "question-detail">
+    <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
+    <p><%= @question.description %></p>
+  </div>
 </div>
 
-<div class = "question-detail">
-  <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
-  <p><%= @question.description %></p>
-</div>
-</div>
-<div class = "question-clear"></div>
+<div class = "float-clear"></div>
 
 <% @question.comments.to_a.each do |comment| %>
   <div class="sidebar">
@@ -26,14 +26,14 @@
 
   <div class = "comment-detail">
     <p>
-        <%= comment.description %>
-      </p>
-      <p class = "user_timestamp_container">
-      <span>
-        <%= User.find(comment.user_id).user_name %>
-      </span>
+      <%= comment.description %> 
     </p>
+    <div>
+      - <%= User.find(comment.user_id).user_name %>
+    </div>
+   
   </div>
+
   <%end%>
 <% @answers.to_a.each do |answer| %>
   <% if answer.best_answer == 1 %>
@@ -41,30 +41,43 @@
   <% end %>
 <% end %>
 
+<%end%>
+
+
 <% @answers.to_a.each do |answer| %>
   <div class="sidebar">
 
   <% if answer.best_answer == 1 %>
-    <span class = "best-answer">
+    <div class = "best-answer">
       <i class="fa fa-check" aria-hidden="true"></i>
-    </span>
-  <% else %>
-    <span class = "best-answer" style="display:none">
-      <i class="fa fa-check" aria-hidden="true"></i>
-    </span>
+    </div>
   <% end %>
 
   </div>
 
-  <div class = "answer-detail">
+  <div class = "answer-detail" id="<%=answer.id%>">
     <p>
-        <%= answer.description %>&nbsp&nbsp<a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
-      </p>
-      <p class = "user_timestamp_container">
-      <span>
+
+    <div class = "answer-button-container">
+      <button id="upvote">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      </button>
+      <span class="points-small">
+        
+        <%= answer.vote_count %>
+      </span>
+      <button id="downvote">
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+    </div>
+    
+      <%= answer.description %> <a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
+    </p>
+    <span class = "user_timestamp_container">
+      <span style="float:right">
         <%= answer.user.user_name %>
       </span>
-    </p>
+    </span>
   </div>
   <div class="buttongroup">
     <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
@@ -74,20 +87,21 @@
     <% end %>
   </div>
 
-  <% answer.comments.to_a.each do |comment| %>
-    <div class="sidebar">
+  <div class = "float-clear"></div>
 
-    </div>
+  <% answer.comments.to_a.each do |comment| %>
+    <!-- <div class="sidebar">
+
+    </div> -->
 
     <div class = "comment-detail">
       <p>
-          <%= comment.description %>
-        </p>
-        <p class = "user_timestamp_container">
-        <span>
-          <%= User.find(comment.user_id).user_name %>
-        </span>
+        <%= comment.description %> 
       </p>
+      <div>
+        - <%= User.find(comment.user_id).user_name %>
+      </div>
+     
     </div>
   <%end%>
 
@@ -99,7 +113,7 @@
   <div class="answer-text-box">
     <form method="post" action="/question/<%= @question.id %>/answers">
       <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
-      <input type="submit" value="Post your Answer">
+      <input type="submit" value="Post your Answer" class="styled-button">
     </form>
   </div>
 <%end %>

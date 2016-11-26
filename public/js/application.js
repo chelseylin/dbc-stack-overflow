@@ -53,4 +53,47 @@ $(document).ready(function() {
     $(this).hide();
   });
 
+  $(".answer-detail").on("click","#upvote", function(e){
+    e.preventDefault();
+    var current_answer_id = $(this).closest(".answer-detail").attr("id");
+    console.log(current_answer_id);
+
+    var current_points = $(this).closest(".answer-detail").find(".points-small");
+    console.log(current_points);
+
+    var button = $(this);
+    var request = $.ajax({
+      method: "POST",
+      url: "/answers/" + current_answer_id + "/vote",
+      data: {value: 1}
+    });
+    request.done(function(msg){
+      console.log(msg);
+      // button.css("color","red");
+      current_points.text(msg);
+    });
+  });
+
+  $(".answer-detail").on("click","#downvote", function(e){
+    e.preventDefault();
+    var current_answer_id = $(this).closest(".answer-detail").attr("id");
+    console.log(current_answer_id);
+
+    var current_points = $(this).closest(".answer-detail").find(".points-small");
+    console.log(current_points);
+
+    var button = $(this);
+    var request = $.ajax({
+      method: "POST",
+      url: "/answers/" + current_answer_id + "/vote",
+      data: {value: -1}
+    });
+    request.done(function(msg){
+      console.log(msg);
+      // button.css("color","red");
+      current_points.text(msg);
+    });
+
+  });
+
 });
