@@ -64,10 +64,10 @@ post '/questions/:id' do
   end
 end
 
-get '/questions/:id' do
-  @question = Question.find(params[:id])
-  @answers = Answer.where("question_id = '#{params[:id]}'")
-  erb :show_question
-end
+# get '/questions/:id' do
+#   @question = Question.find(params[:id])
+#   @answers = Answer.where("question_id = '#{params[:id]}'")
+#   erb :show_question
+# end
 
 
