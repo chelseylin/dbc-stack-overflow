@@ -1,22 +1,22 @@
 <div class = "question-container" id = "<%=@question.id%>">
-<div class="sidebar">
-  <button id="upvote">
-  	<i class="fa fa-chevron-up" aria-hidden="true"></i>
-  </button>
+  <div class="sidebar">
+    <button id="upvote">
+    	<i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
 
-  <span class="points"><%= @question.vote_count %></span>
+    <span class="points"><%= @question.vote_count %></span>
 
-  <button id="downvote">
-    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-  </button>
+    <button id="downvote">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </button>
+  </div>
 
+  <div class = "question-detail">
+    <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
+    <p><%= @question.description %></p>
+  </div>
 </div>
 
-<div class = "question-detail">
-  <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
-  <p><%= @question.description %></p>
-</div>
-</div>
 <div class = "question-clear"></div>
 
 <% @question.comments.to_a.each do |comment| %>
@@ -26,15 +26,14 @@
 
   <div class = "comment-detail">
     <p>
-        <%= comment.description %>
-      </p>
-      <p class = "user_timestamp_container">
-      <span>
-        <%= User.find(comment.user_id).user_name %>
-      </span>
+      <%= comment.description %> 
     </p>
+    <div>
+      - <%= User.find(comment.user_id).user_name %>
+    </div>
+   
   </div>
-  <%end%>
+<%end%>
 
 <% @answers.to_a.each do |answer| %>
   <div class="sidebar">
@@ -53,9 +52,9 @@
 
   <div class = "answer-detail">
     <p>
-        <%= answer.description %>&nbsp&nbsp<a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
-      </p>
-      <p class = "user_timestamp_container">
+      <%= answer.description %>&nbsp&nbsp<a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
+    </p>
+    <p class = "user_timestamp_container">
       <span>
         <%= answer.user.user_name %>
       </span>
@@ -69,13 +68,12 @@
 
     <div class = "comment-detail">
       <p>
-          <%= comment.description %>
-        </p>
-        <p class = "user_timestamp_container">
-        <span>
-          <%= User.find(comment.user_id).user_name %>
-        </span>
+        <%= comment.description %> 
       </p>
+      <div>
+        - <%= User.find(comment.user_id).user_name %>
+      </div>
+     
     </div>
   <%end%>
 

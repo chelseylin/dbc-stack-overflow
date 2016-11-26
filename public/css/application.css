@@ -1,16 +1,17 @@
 body {
   padding:10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 nav {
-  background:darkcyan;
+  font-size:85%;
+  background:black;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   opacity: .8;
-  z-index: 3;
+  z-index: 2;
   padding: 0px;
 }
 
@@ -29,35 +30,74 @@ nav li {
 }
 
 nav ul li a {
+  text-decoration: none;
   color: white;
 }
 
+a {
+  text-decoration:none;
+  color: blue;
+}
+
 header {
-  margin-top:50px;
+  margin-top:60px;
+}
+
+.fa-stack-overflow {
+  color:orange; 
+  float:left; 
+  margin-top:5px;
+  margin-right:5px;
+  font-size: 180%
 }
 
 h1, h2, h3 {
   font-weight:lighter;
-  font-family: 'Bree Serif', serif;
 }
 
-.register {
-  width: 215px;
-  height:100px;
-/*  float:right;
-  padding-right:20px;*/
+h1 {
+  color:black;
+}
+
+.login {
+  width: 160px;
+  height:90px;
+  padding:15px;
+}
+
+.register{
+  width: 160px;
+  height:90px;
+  padding:15px;
   position: absolute;
   top: 70px;
-  left: 70%;
+  right: 50px;
+/*border:2px solid gray;
+border-radius:5px;*/
 }
 
-.register input {
+.register input, .login input {
   padding:4px;
-  border-radius:5px;
+  width: 150px;
+  border-radius:3px;
+  margin-bottom:7px;
+  border:none;
+  border-bottom: 1px solid gray;
 }
 
 .register input[type='submit'] {
   float:right;
+  width:100%;
+/*  background:blue;
+  border:none;
+  color:white;*/
+}
+
+.styled-button {
+  border: none;
+  border-radius:3px;
+  padding:5px;
+  color:black;
 }
 
 .page-container {
@@ -74,10 +114,10 @@ article {
 }
 
 .vote-count, .points {
-  font-size:150%;
+  font-size:140%;
   margin-top:20px;
-  width:35px;
-  height:35px;
+  width:30px;
+  height:30px;
   background-color:coral;
   color:white;
   float:left;
@@ -100,10 +140,13 @@ article {
   clear:both;
 }
 
-/*.answer-detail {
-  float:left;
-  width: 85%;
-}*/
+.comment-detail {
+  border-left: 1px solid gray;
+  font-size:90%;
+  font-style: italic;
+  margin-left:60px;
+  padding-left:10px;
+}
 
 .description {
   margin-left:10px;
@@ -116,14 +159,16 @@ article {
 .sidebar {
   float:left;
   text-align:center;
-  width:35px;
+  width:30px;
+  height:30px;
   padding-right:20px;
 }
 
 .sidebar button {
-  background-color:white;
+background:white;
+  /*font-size:70%;*/
   border:none;
-  color:gray;
+/*  color:gray;*/
 }
 
 .best-answer {
