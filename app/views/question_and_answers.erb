@@ -4,7 +4,7 @@
   	<i class="fa fa-chevron-up" aria-hidden="true"></i>
   </button>
 
-  <span class="points"><%= @question.votes.count %></span>
+  <span class="points"><%= @question.vote_count %></span>
 
   <button id="downvote">
     <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -82,13 +82,15 @@
   <!-- ends loop -->
   <% end %>
 
+
+<%if session[:user_id]%>
   <div class="answer-text-box">
     <form method="post" action="/question/<%= @question.id %>/answers">
       <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
       <input type="submit" value="Post your Answer">
     </form>
   </div>
-
+<%end %>
 
 
 
