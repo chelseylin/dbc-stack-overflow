@@ -43,6 +43,16 @@ $(document).ready(function() {
     });
   });
 
+  // function hideButtons() {
+  //   document.getElementById("best_answer_button").hide();
+  // }
+
+  $(".buttongroup").find("#button").click(function(e){
+    e.preventDefault();
+
+    $(this).hide();
+  });
+
   $(".answer-detail").on("click","#upvote", function(e){
     e.preventDefault();
     var current_answer_id = $(this).closest(".answer-detail").attr("id");
@@ -83,6 +93,7 @@ $(document).ready(function() {
       // button.css("color","red");
       current_points.text(msg);
     });
+
   });
 
 });

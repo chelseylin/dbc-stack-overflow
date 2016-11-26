@@ -33,7 +33,16 @@
     </div>
    
   </div>
+
+  <%end%>
+<% @answers.to_a.each do |answer| %>
+  <% if answer.best_answer == 1 %>
+    <% @best_answer_selected = true %>
+  <% end %>
+<% end %>
+
 <%end%>
+
 
 <% @answers.to_a.each do |answer| %>
   <div class="sidebar">
@@ -69,6 +78,13 @@
         <%= answer.user.user_name %>
       </span>
     </span>
+  </div>
+  <div class="buttongroup">
+    <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
+      <form method="post" action="/question/<%= @question.id %>/answers/<%= answer.id %>">
+        <button id="best_answer_button" type="submit" name="best_answer">BEST ANSWER</button>
+      </form>
+    <% end %>
   </div>
 
   <div class = "float-clear"></div>
