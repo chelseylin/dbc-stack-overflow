@@ -23,4 +23,13 @@ class Answer < ActiveRecord::Base
       return errors.add :user, "cannot answer the same question more than once"
     end
   end
+
+  def vote_count
+    votes = self.votes.to_a.map!{|vote| vote.value }.reduce(:+)
+    if votes == nil
+      return 0
+    else
+      return votes
+    end
+  end
 end
