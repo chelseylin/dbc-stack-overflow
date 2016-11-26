@@ -52,7 +52,7 @@
 
   <div class = "answer-detail">
     <p>
-      <%= answer.description %>&nbsp&nbsp<a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
+      <%= answer.description %> <a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
     </p>
     <p class = "user_timestamp_container">
       <span>
@@ -61,10 +61,12 @@
     </p>
   </div>
 
-  <% answer.comments.to_a.each do |comment| %>
-    <div class="sidebar">
+  <div class = "question-clear"></div>
 
-    </div>
+  <% answer.comments.to_a.each do |comment| %>
+    <!-- <div class="sidebar">
+
+    </div> -->
 
     <div class = "comment-detail">
       <p>
