@@ -35,6 +35,11 @@
     </p>
   </div>
   <%end%>
+<% @answers.to_a.each do |answer| %>
+  <% if answer.best_answer == 1 %>
+    <% @best_answer_selected = true %>
+  <% end %>
+<% end %>
 
 <% @answers.to_a.each do |answer| %>
   <div class="sidebar">
@@ -61,6 +66,10 @@
       </span>
     </p>
   </div>
+  <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
+  <!-- need to implement a javascript function below that hides the button and sets best_answer -->
+    <button type="submit" name="best_answer" onclick=''>>BEST ANSWER</button>
+  <% end %>
 
   <% answer.comments.to_a.each do |comment| %>
     <div class="sidebar">
