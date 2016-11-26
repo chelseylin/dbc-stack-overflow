@@ -35,3 +35,4 @@ comment1 = Comment.create(description: "comment for answer", user_id: 2, content
 vote1 = Vote.create(value: 1, user_id: 2, target: question1)
 vote2 = Vote.create(value: 1, user_id: 3, target: answer1)
 vote3 = Vote.create(value: 1, user_id: 1, target: comment1)
+vote4 = Vote.create!(value: -1, user_id: 4, target: question1)

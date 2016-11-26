@@ -28,16 +28,19 @@ end
 post '/questions/:id' do
   @question = Question.find(params[:id])
   @user = User.find(session[:user_id])
-  @new_vote = Vote.create(user_id: @user.id, target: @question, value: 1)
 
-  if @new_vote.valid?
-    if request.xhr?
-      return @question.votes.count.to_s
+  if request.xhr?
+    if params[:value].to_i == 0
+      value = 1
     else
-      erb :question_and_answers
+      value = -1
+    end
+    @new_vote = Vote.create!(user_id: @user.id, target: @question, value: value)
+    if @new_vote.save
+      return @question.vote_count.to_s
     end
   else
-    status 422
+    erb :question_and_answers
   end
 end
 
