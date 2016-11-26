@@ -13,11 +13,28 @@
 </div>
 
 <div class = "question-detail">
-  <h3><%= @question.title %></h3>
+  <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
   <p><%= @question.description %></p>
 </div>
 </div>
 <div class = "question-clear"></div>
+
+<% @question.comments.to_a.each do |comment| %>
+  <div class="sidebar">
+
+  </div>
+
+  <div class = "comment-detail">
+    <p>
+        <%= comment.description %>
+      </p>
+      <p class = "user_timestamp_container">
+      <span>
+        <%= User.find(comment.user_id).user_name %>
+      </span>
+    </p>
+  </div>
+  <%end%>
 
 <% @answers.to_a.each do |answer| %>
   <div class="sidebar">
@@ -36,7 +53,7 @@
 
   <div class = "answer-detail">
     <p>
-        <%= answer.description %>
+        <%= answer.description %>&nbsp&nbsp<a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
       </p>
       <p class = "user_timestamp_container">
       <span>
@@ -44,6 +61,24 @@
       </span>
     </p>
   </div>
+
+  <% answer.comments.to_a.each do |comment| %>
+    <div class="sidebar">
+
+    </div>
+
+    <div class = "comment-detail">
+      <p>
+          <%= comment.description %>
+        </p>
+        <p class = "user_timestamp_container">
+        <span>
+          <%= User.find(comment.user_id).user_name %>
+        </span>
+      </p>
+    </div>
+  <%end%>
+
   <!-- ends loop -->
   <% end %>
 

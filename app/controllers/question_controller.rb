@@ -19,8 +19,12 @@ get '/questions' do
 end
 
 get '/questions/new' do
-
-  erb :create_question
+  if session[:user_id]
+    erb :create_question
+  else
+    # enable javascript alert
+    redirect '/questions'
+  end
 end
 
 get '/questions/:id' do
