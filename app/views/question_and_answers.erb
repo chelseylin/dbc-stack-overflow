@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class = "question-clear"></div>
+<div class = "float-clear"></div>
 
 <% @question.comments.to_a.each do |comment| %>
   <div class="sidebar">
@@ -39,13 +39,9 @@
   <div class="sidebar">
 
   <% if answer.best_answer == 1 %>
-    <span class = "best-answer">
+    <div class = "best-answer">
       <i class="fa fa-check" aria-hidden="true"></i>
-    </span>
-  <% else %>
-    <span class = "best-answer" style="display:none">
-      <i class="fa fa-check" aria-hidden="true"></i>
-    </span>
+    </div>
   <% end %>
 
   </div>
@@ -54,14 +50,14 @@
     <p>
       <%= answer.description %> <a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
     </p>
-    <p class = "user_timestamp_container">
-      <span>
+    <span class = "user_timestamp_container">
+      <span style="float:right">
         <%= answer.user.user_name %>
       </span>
-    </p>
+    </span>
   </div>
 
-  <div class = "question-clear"></div>
+  <div class = "float-clear"></div>
 
   <% answer.comments.to_a.each do |comment| %>
     <!-- <div class="sidebar">
@@ -87,7 +83,7 @@
   <div class="answer-text-box">
     <form method="post" action="/question/<%= @question.id %>/answers">
       <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
-      <input type="submit" value="Post your Answer">
+      <input type="submit" value="Post your Answer" class="styled-button">
     </form>
   </div>
 <%end %>
