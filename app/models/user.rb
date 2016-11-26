@@ -9,14 +9,26 @@ class User < ActiveRecord::Base
   validates :user_name, { presence: true, uniqueness: true }
   validate :valid_password
 
+  # def valid_username
+  #   unless @user_name.length >= 5 # at least 6 characters long
+  #     return errors.add :user_name, "Must be at least 5 characters"
+  #   end
+  # end
+
   def valid_password
     if @plain_password == nil || @plain_password.empty? # check for empty password
       return errors.add :password, "can't be blank"
     end
 
     unless @plain_password.length >= 6 # at least 6 characters long
-      return errors.add :password, "must be at least 6 characters"
+      return errors.add :password, "Must be at least 6 characters"
     end
+
+    reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
+    if ((reg.match(@plain_password))? true : false) == false
+      return errors.add :password, "Must contain at least one letter and one number"
+    end
+    
   end
 
   include BCrypt
