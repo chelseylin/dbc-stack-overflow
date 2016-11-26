@@ -43,4 +43,14 @@ $(document).ready(function() {
     });
   });
 
+  // function hideButtons() {
+  //   document.getElementById("best_answer_button").hide();
+  // }
+
+  $(".buttongroup").find("#button").click(function(e){
+    e.preventDefault();
+
+    $(this).hide();
+  });
+
 });

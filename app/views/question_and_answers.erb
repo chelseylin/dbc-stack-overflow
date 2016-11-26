@@ -66,10 +66,13 @@
       </span>
     </p>
   </div>
-  <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
-  <!-- need to implement a javascript function below that hides the button and sets best_answer -->
-    <button type="submit" name="best_answer" onclick=''>>BEST ANSWER</button>
-  <% end %>
+  <div class="buttongroup">
+    <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
+      <form method="post" action="/question/<%= @question.id %>/answers/<%= answer.id %>">
+        <button id="best_answer_button" type="submit" name="best_answer">BEST ANSWER</button>
+      </form>
+    <% end %>
+  </div>
 
   <% answer.comments.to_a.each do |comment| %>
     <div class="sidebar">
