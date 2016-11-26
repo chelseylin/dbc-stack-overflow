@@ -3,8 +3,8 @@ $(document).ready(function() {
     e.preventDefault();
 
     var current_question_id = $(this).closest("div.question-container").attr("id");
-    var current_points = $(this).closest("div.question-container").find(".points")
-    var button = $(this)
+    var current_points = $(this).closest("div.question-container").find(".points");
+    var button = $(this);
 
     var request = $.ajax({
       method: "POST",
@@ -14,9 +14,9 @@ $(document).ready(function() {
       data: {value: 1}
     });
     request.done(function(msg){
-      console.log(msg)
-      // button.css("color","green")
-      // current_points.html(msg)
+      // console.log(msg)
+      button.css("color","green");
+      current_points.text(msg);
     });
   });
 
@@ -24,8 +24,9 @@ $(document).ready(function() {
     e.preventDefault();
 
     var current_question_id = $(this).closest("div.question-container").attr("id");
-    var current_points = $(this).closest("div.question-container").find(".points")
-    var button = $(this)
+    var current_points = $(this).closest("div.question-container").find(".points");
+
+    var button = $(this);
 
     var request = $.ajax({
       method: "POST",
@@ -33,8 +34,12 @@ $(document).ready(function() {
       data: {value: -1}
     });
     request.done(function(msg){
-      button.css("color","red")
-      current_points.html(msg)
+      // msg = msg.to_i - 1;
+      // console.log(msg);
+      // $("body").find(".points").text(msg);
+      // $("button#downvote").closest("div.question-container").find(".points").text(msg);
+      button.css("color","red");
+      current_points.text(msg);
     });
   });
 

@@ -1,4 +1,5 @@
 <p>
+<%if !session[:user_id]%>
   <div class="register">
     <form action="/register" method="post">
       <input type="text" name="user[user_name]" placeholder="Username">
@@ -6,7 +7,7 @@
       <input type="submit" value="Register">
     </form>
   </div>
-
+<%end%>
   <% if @errors %>
     <span>Something went wrong:</span>
     <ul class="error-list">
