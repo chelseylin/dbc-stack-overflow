@@ -15,12 +15,8 @@ end
 
 post "/question/:id/answers/:answer_id" do
 	answer = Answer.find(params[:answer_id])
-	puts "ANSWER ID OF FOUND ANSWER: #{answer.id}"
-	puts "ANSWER BEST VALUE: #{answer.best_answer}"
 	answer.update_attribute(:best_answer, 1)
 	answer.save
-	puts "ANSWER BEST VALUE AFTER INCREMENT: #{answer.best_answer}"
-	puts "answer should be bested"
 	redirect "/questions/#{params[:id]}"
 end
 
