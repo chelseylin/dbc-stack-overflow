@@ -1,7 +1,11 @@
 <h2>Overflow user information for '<%= @user.user_name %>' :</h2>
 <ul>
 	<li><%= @user.user_name %> has been a member since: <%= @user.created_at %></li>
-	<li><%= @user.user_name %>'s top rated post is <%= @topQuestion.title %> posted on <%= @topQuestion.created_at%> with <%= @topQuestion.vote_count %> total votes</li>
-	<li><%= @user.user_name %>'s lowest rated post is <%= @lowQuestion.title %> posted on <%= @lowQuestion.created_at%> with <%= @lowQuestion.vote_count %> total votes</li>
+	<% if @topQuestion %>
+		<li><%= @user.user_name %>'s top rated post is <%= @topQuestion.title %> posted on <%= @topQuestion.created_at%> with <%= @topQuestion.vote_count %> total votes</li>
+		<li><%= @user.user_name %>'s lowest rated post is <%= @lowQuestion.title %> posted on <%= @lowQuestion.created_at%> with <%= @lowQuestion.vote_count %> total votes</li>
+	<% else %>
+		<li><%= @user.user_name %> does not have any posts yet</li>
+	<% end %>
 	<li><%= @user.user_name %>'s total post karma is <%= @total_post_karma %> votes</li>
 </ul>
