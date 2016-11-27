@@ -15,4 +15,11 @@ class Question < ActiveRecord::Base
       return votes
     end
   end
+
+  # return true if user already answered this question before
+  def answered_by?(user_id)
+    target_user = User.find_by_id(user_id)
+    answerers = self.answers.map { |answer| answer.user }
+    answerers.include?(target_user)
+  end
 end

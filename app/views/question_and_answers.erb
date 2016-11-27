@@ -130,20 +130,20 @@
       </div>
      
     </div>
-  <%end%>
+  <% end %>
 
   <!-- ends loop -->
   <% end %>
 
 
-<%if session[:user_id] && (@question.user_id != session[:user_id])%>
+<% if session[:user_id] && (@question.user_id != session[:user_id]) && !(@question.answered_by?(session[:user_id])) %>
   <div class="answer-text-box">
     <form method="post" action="/question/<%= @question.id %>/answers">
       <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
       <input type="submit" value="Post your Answer" class="styled-button">
     </form>
   </div>
-<%end %>
+<% end %>
 
 
 
