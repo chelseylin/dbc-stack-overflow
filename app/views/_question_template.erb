@@ -8,7 +8,7 @@
         <%= question.title %>
       </a>
     </h3>
-    <p class="description"><%= question.description %></p>
+    <p class="description"><%= stub(question.description) %></p>
     <p class="user_timestamp_container">
      <!--  <button> -->
         <form action="questions/<%= question.id %>" method="get">

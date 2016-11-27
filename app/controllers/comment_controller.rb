@@ -3,6 +3,7 @@
 #create
 post '/:content_type/:content_id/comment' do
   comment = Comment.create(description: params[:description], user_id: session[:user_id], content_type: params[:content_type][0..-2].capitalize, content_id: params[:content_id])
+  Vote.create(value: 1, user_id: session[:user_id], target: comment)
   if params[:content_type] == "answers"
     answer = Answer.find(params[:content_id])
     @question_id = answer.question_id
