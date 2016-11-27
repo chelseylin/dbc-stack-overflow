@@ -10,7 +10,7 @@ post "/question/:id/answers" do
   # userid_who_posedQ = User.find_by(question_id: params[:id]
   new_answer = Answer.create(description: params[:answertext], user_id: session[:user_id], question_id: params[:id])
   if new_answer.valid?
-    Vote.create(value: 1, user_id: session[:user_id], target: @answer)
+    Vote.create(value: 1, user_id: session[:user_id], target: new_answer)
     redirect "/questions/#{params[:id]}"
   else
     status 422
