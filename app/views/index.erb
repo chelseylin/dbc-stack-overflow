@@ -23,8 +23,10 @@
   <button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
   <div class="float-clear"></div>
 
+  <% @questions_sorted_by_votes = (@questions.sort_by { |question| question.vote_count }).reverse! %>
+
   <div class='question-container'>
-    <% @questions.each_with_index do |iteration_question, i| %>
+    <% @questions_sorted_by_votes.each_with_index do |iteration_question, i| %>
       <%= erb(:_question_template, locals: {question: iteration_question, i: i}) %>
     <% end %>
   </div>
