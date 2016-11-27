@@ -22,4 +22,9 @@ class Question < ActiveRecord::Base
     answerers = self.answers.map { |answer| answer.user }
     answerers.include?(target_user)
   end
+
+  # return the best answer if exists, nil otherwise
+  def best_answer
+    self.answers.find { |answer| answer.best_answer == 1 }
+  end
 end
