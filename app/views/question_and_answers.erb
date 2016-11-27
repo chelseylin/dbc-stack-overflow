@@ -19,7 +19,9 @@
 
 <div class = "float-clear"></div>
 
-<% @question.comments.to_a.each do |comment| %>
+<% q_comments_by_time = @question.comments.order(:created_at) %>
+
+<% q_comments_by_time.to_a.each do |comment| %>
   <div class="sidebar">
 
   </div>
@@ -43,7 +45,7 @@
       <%= comment.description %> 
     </p>
     <div style="padding-left:35px"> 
-      - <%= User.find(comment.user_id).user_name %>
+      - <%= User.find(comment.user_id).user_name %> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
     </div>
    
   </div>
@@ -108,7 +110,9 @@
 
   <div class = "float-clear"></div>
 
-  <% answer.comments.to_a.each do |comment| %>
+  <% comments_by_time = answer.comments.order(:created_at) %>
+
+  <% comments_by_time.to_a.each do |comment| %>
     <!-- <div class="sidebar">
 
     </div> -->
@@ -131,7 +135,7 @@
         <%= comment.description %> 
       </p>
       <div style="padding-left:35px">
-        - <%= User.find(comment.user_id).user_name %>
+        - <%= User.find(comment.user_id).user_name %> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
       </div>
      
     </div>
