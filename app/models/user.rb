@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :user_name, { presence: true, uniqueness: true }
+  validates_length_of :user_name, :minimum => 5, :maximum => 10
   validate :valid_password
 
   def valid_password
@@ -15,8 +16,14 @@ class User < ActiveRecord::Base
     end
 
     unless @plain_password.length >= 6 # at least 6 characters long
-      return errors.add :password, "must be at least 6 characters"
+      return errors.add :password, "Must be at least 6 characters"
     end
+
+    reg = /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,40}$/
+    if ((reg.match(@plain_password))? true : false) == false
+      return errors.add :password, "Must contain at least one letter and one number"
+    end
+    
   end
 
   include BCrypt

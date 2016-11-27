@@ -8,22 +8,24 @@
     </form>
   </div>
 <%end%>
-  <% if @errors %>
-    <span>Something went wrong:</span>
-    <ul class="error-list">
-      <% @errors.each do |error| %>
-        <li class="error-item"><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
 </p>
 
-<h2 style = "float:left">Questions:</h2>
-<button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
-<div class="float-clear"></div>
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% else %>
 
-<div class='question-container'>
-  <% @questions.each_with_index do |iteration_question, i| %>
-    <%= erb(:_question_template, locals: {question: iteration_question, i: i}) %>
-  <% end %>
-</div>
+  <h2 style = "float:left">Questions:</h2>
+  <button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
+  <div class="float-clear"></div>
+
+  <div class='question-container'>
+    <% @questions.each_with_index do |iteration_question, i| %>
+      <%= erb(:_question_template, locals: {question: iteration_question, i: i}) %>
+    <% end %>
+  </div>
+<% end %>
