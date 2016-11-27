@@ -2,6 +2,18 @@
 # 	erb :home
 # end
 
+get '/user_profile/:id' do
+	@user = User.find(params[:id])
+	@questions = @user.questions
+	@total_post_karma = 0
+	@total_answer_karma = @user.answers.each {|answer| @total_post_karma += answer.vote_count}
+	@total_comment_karma = @user.comments.each {|comment| @total_post_karma += comment.vote_count}
+	@total_question_karma = @user.questions.each {|question| @total_post_karma += question.vote_count}
+	@topQuestion = (@questions.sort_by {|question| question.vote_count}).reverse![0]
+	@lowQuestion = (@questions.sort_by {|question| question.vote_count})[0]
+	erb :other_user_profile
+end
+
 post '/register' do
 	@user = User.new(params[:user])
   @user.password = params[:password]
