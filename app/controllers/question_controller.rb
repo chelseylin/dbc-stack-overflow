@@ -39,14 +39,15 @@ post '/questions/new' do
   redirect '/questions'
 end
 
-post '/questions/:id' do
+post '/questions/:id/vote' do
   @question = Question.find(params[:id])
   @user = User.find(session[:user_id])
 
   vote_count = @question.vote_count
-
+  puts "============"
+  p params[:value]
   if request.xhr?
-    if params[:value].to_i == 0
+    if params[:value].to_i == 1
       value = 1
     else
       value = -1

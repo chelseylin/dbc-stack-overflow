@@ -1,46 +1,43 @@
+function votabilityHelper(thingPressed, votableType, voteValue) {
+  if(votableType == "question"){
+    var pointDiv = ".points";
+    var suffix = "container";
+  } else {
+    var pointDiv = ".points-small";
+    var suffix = "detail"
+  }
+
+  var targetId = $(thingPressed).closest("." +votableType+"-"+suffix).attr("id");
+  var targetPoints = $(thingPressed).closest("." + votableType + "-" + suffix).find(pointDiv);
+
+  var request = $.ajax({
+    method: "POST",
+    url: "/"+ votableType + "s" +"/" + targetId +"/vote",
+    data: {value: voteValue}
+  });
+  request.done(function(msg){
+    console.log(msg)
+    if(voteValue == 1){
+      var color = "green";
+    }else{
+      var color = "red";
+    }
+    thingPressed.css("color",color);
+    targetPoints.text(msg);
+  });
+}
+
 $(document).ready(function() {
   $(".sidebar").on("click","button#upvote", function(e){
     e.preventDefault();
-
-    var current_question_id = $(this).closest("div.question-container").attr("id");
-    var current_points = $(this).closest("div.question-container").find(".points");
-    var button = $(this);
-
-    var request = $.ajax({
-      method: "POST",
-      url: "/questions/" + current_question_id,
-      dataType: 'json',
-      contentType:"application/json",
-      data: {value: 1}
-    });
-    request.done(function(msg){
-      // console.log(msg)
-      button.css("color","green");
-      current_points.text(msg);
-    });
+    var buttonPressed = $(this)
+    votabilityHelper(buttonPressed, "question", 1);
   });
 
   $(".sidebar").on("click","button#downvote", function(e){
     e.preventDefault();
-
-    var current_question_id = $(this).closest("div.question-container").attr("id");
-    var current_points = $(this).closest("div.question-container").find(".points");
-
-    var button = $(this);
-
-    var request = $.ajax({
-      method: "POST",
-      url: "/questions/" + current_question_id,
-      data: {value: -1}
-    });
-    request.done(function(msg){
-      // msg = msg.to_i - 1;
-      // console.log(msg);
-      // $("body").find(".points").text(msg);
-      // $("button#downvote").closest("div.question-container").find(".points").text(msg);
-      button.css("color","red");
-      current_points.text(msg);
-    });
+    var buttonPressed = $(this);
+    votabilityHelper(buttonPressed, "question", -1);
   });
 
   // function hideButtons() {
@@ -55,89 +52,27 @@ $(document).ready(function() {
 
   $(".answer-detail").on("click","#upvote", function(e){
     e.preventDefault();
-    var current_answer_id = $(this).closest(".answer-detail").attr("id");
-    console.log(current_answer_id);
-
-    var current_points = $(this).closest(".answer-detail").find(".points-small");
-    console.log(current_points);
-
-    var button = $(this);
-    var request = $.ajax({
-      method: "POST",
-      url: "/answers/" + current_answer_id + "/vote",
-      data: {value: 1}
-    });
-    request.done(function(msg){
-      console.log(msg);
-      // button.css("color","red");
-      current_points.text(msg);
-    });
+    var buttonPressed = $(this);
+    votabilityHelper(buttonPressed, "answer", 1);
   });
 
   $(".answer-detail").on("click","#downvote", function(e){
     e.preventDefault();
-    var current_answer_id = $(this).closest(".answer-detail").attr("id");
-    console.log(current_answer_id);
-
-    var current_points = $(this).closest(".answer-detail").find(".points-small");
-    console.log(current_points);
-
-    var button = $(this);
-    var request = $.ajax({
-      method: "POST",
-      url: "/answers/" + current_answer_id + "/vote",
-      data: {value: -1}
-    });
-    request.done(function(msg){
-      console.log(msg);
-      // button.css("color","red");
-      current_points.text(msg);
-    });
-
+    var buttonPressed = $(this);
+    votabilityHelper(buttonPressed, "answer", -1);
   });
 
   $(".comment-detail").on("click","#upvote", function(e){
     e.preventDefault();
-    var current_comment_id = $(this).closest(".comment-detail").attr("id");
-    console.log(current_comment_id);
-
-    var current_points = $(this).closest(".comment-detail").find(".points-small");
-    console.log(current_points);
-
-    var button = $(this);
-    var request = $.ajax({
-      method: "POST",
-      url: "/comments/" + current_comment_id + "/vote",
-      data: {value: 1}
-    });
-    request.done(function(msg){
-      console.log(msg);
-      // button.css("color","red");
-      current_points.text(msg);
-    });
-
+    var buttonPressed = $(this);
+    console.log(buttonPressed)
+    votabilityHelper(buttonPressed, "comment", 1);
   });
 
   $(".comment-detail").on("click","#downvote", function(e){
     e.preventDefault();
-    var current_comment_id = $(this).closest(".comment-detail").attr("id");
-    console.log(current_comment_id);
-
-    var current_points = $(this).closest(".comment-detail").find(".points-small");
-    console.log(current_points);
-
-    var button = $(this);
-    var request = $.ajax({
-      method: "POST",
-      url: "/comments/" + current_comment_id + "/vote",
-      data: {value: -1}
-    });
-    request.done(function(msg){
-      console.log(msg);
-      // button.css("color","red");
-      current_points.text(msg);
-    });
-
+    var buttonPressed = $(this);
+    votabilityHelper(buttonPressed, "comment", -1);
   });
 
 });
