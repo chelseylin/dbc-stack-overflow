@@ -45,7 +45,7 @@
       <%= comment.description %> 
     </p>
     <div style="padding-left:35px"> 
-      - <%= User.find(comment.user_id).user_name %> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
+      - <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
     </div>
    
   </div>
@@ -96,7 +96,7 @@
     </p>
     <span class = "user_timestamp_container">
       <span style="float:right">
-        <%= answer.user.user_name %>
+        <a href="/user_profile/<%= answer.user_id %>"><%= answer.user.user_name %></a> posted at <%= answer.created_at.strftime("%k:%M %b %e, %Y") %>
       </span>
     </span>
   </div>
@@ -135,7 +135,7 @@
         <%= comment.description %> 
       </p>
       <div style="padding-left:35px">
-        - <%= User.find(comment.user_id).user_name %> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
+        - <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
       </div>
      
     </div>
