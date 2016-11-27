@@ -35,9 +35,14 @@ end
 
 post '/questions/new' do
   @question = Question.create(title: params[:title], description: params[:description], user_id: session[:user_id])
-  Vote.create(value: 1, user_id: session[:user_id], target: @question)
-  @question.votes
-  redirect '/questions'
+  if @question.valid?
+    Vote.create(value: 1, user_id: session[:user_id], target: @question)
+    @question.votes
+    redirect '/questions'
+  else
+    @errors = @question.errors.full_messages
+    erb :create_question
+  end
 end
 
 post '/questions/:id/vote' do

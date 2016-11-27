@@ -6,6 +6,13 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :target
 
   validates :title, :description, :user_id, { presence: true }
+  validate :valid_title
+
+  def valid_title
+    if self.title.length > 99
+      return errors.add :question, "title must be under 100 characters in length"
+    end
+  end
 
   def vote_count
     votes = self.votes.to_a.map!{|vote| vote.value }.reduce(:+)

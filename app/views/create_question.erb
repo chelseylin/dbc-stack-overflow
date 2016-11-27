@@ -1,4 +1,12 @@
 <h2>Ask a new question</h2>
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 <form method='post' action='/questions/new'>
 
   <input id='title' type='text' name='title' placeholder="Title">
@@ -6,3 +14,4 @@
   <textarea id='description' type='text' name='description' cols='50' rows='5' placeholder="Ask away!"></textarea>
   <button class="styled-button">submit</button>
 </form>
+
