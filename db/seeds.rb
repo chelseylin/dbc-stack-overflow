@@ -1,23 +1,23 @@
 # Users
 
-user1 = User.create!(user_name: "tester_1", password: "abc123ab")
-user2 = User.create!(user_name: "tester_2", password: "abc123ab")
-user3 = User.create!(user_name: "tester_3", password: "abc123ab")
-user4 = User.create!(user_name: "tester_4", password: "abc123ab")
-user5 = User.create!(user_name: "tester_5", password: "abc123ab")
-user6 = User.create!(user_name: "tester_6", password: "abc123ab")
-user7 = User.create!(user_name: "tester_7", password: "abc123ab")
-user8 = User.create!(user_name: "tester_8", password: "abc123ab")
-user9 = User.create!(user_name: "tester_9", password: "abc123ab")
+user1 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user2 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user3 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user4 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user5 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user6 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user7 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user8 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
+user9 = User.create!(user_name: Faker::Internet.user_name, password: "abc123ab")
 
 # Questions
 
-question1 = Question.create!(title: "test question 1", description: Faker::Lorem.paragraphs, user_id: 1)
-question2 = Question.create!(title: "test question 2", description: Faker::Lorem.paragraphs, user_id: 1)
-question3 = Question.create!(title: "test question 3", description: Faker::Lorem.paragraphs, user_id: 2)
-question4 = Question.create!(title: "test question 4", description: Faker::Lorem.paragraphs, user_id: 2)
-question5 = Question.create!(title: "test question 5", description: Faker::Lorem.paragraphs, user_id: 3)
-question6 = Question.create!(title: "test question 6", description: Faker::Lorem.paragraphs, user_id: 3)
+question1 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 1)
+question2 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 1)
+question3 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 2)
+question4 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 2)
+question5 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 3)
+question6 = Question.create!(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraphs, user_id: 3)
 
 # Answers
 
