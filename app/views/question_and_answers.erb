@@ -56,9 +56,9 @@
 <% end %>
 
 
+<% @answers_sorted_by_votes = (@answers.sort_by { |answer| answer.vote_count }).reverse! %>
 
-
-<% @answers.to_a.each do |answer| %>
+<% @answers_sorted_by_votes.each do |answer| %>
   <div class="sidebar">
 
   <% if answer.best_answer == 1 %>
