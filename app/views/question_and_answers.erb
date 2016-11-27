@@ -24,11 +24,25 @@
 
   </div>
 
-  <div class = "comment-detail">
+  <div class = "comment-detail" id="<%=comment.id%>">
+
+    <div class = "vote-button-container">
+      <button id="upvote">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      </button>
+      <span class="points-small">
+        
+        <%= comment.vote_count %>
+      </span>
+      <button id="downvote">
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+    </div>
+
     <p>
       <%= comment.description %> 
     </p>
-    <div>
+    <div style="padding-left:35px"> 
       - <%= User.find(comment.user_id).user_name %>
     </div>
    
@@ -58,7 +72,7 @@
   <div class = "answer-detail" id="<%=answer.id%>">
     <p>
 
-    <div class = "answer-button-container">
+    <div class = "vote-button-container">
       <button id="upvote">
         <i class="fa fa-chevron-up" aria-hidden="true"></i>
       </button>
@@ -94,11 +108,24 @@
 
     </div> -->
 
-    <div class = "comment-detail">
+    <div class = "comment-detail" id="<%=comment.id%>">
+      <div class = "vote-button-container">
+        <button id="upvote">
+          <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </button>
+        <span class="points-small">
+        
+          <%= comment.vote_count %>
+        </span>
+        <button id="downvote">
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+      </div>
+
       <p>
         <%= comment.description %> 
       </p>
-      <div>
+      <div style="padding-left:35px">
         - <%= User.find(comment.user_id).user_name %>
       </div>
      

@@ -96,4 +96,48 @@ $(document).ready(function() {
 
   });
 
+  $(".comment-detail").on("click","#upvote", function(e){
+    e.preventDefault();
+    var current_comment_id = $(this).closest(".comment-detail").attr("id");
+    console.log(current_comment_id);
+
+    var current_points = $(this).closest(".comment-detail").find(".points-small");
+    console.log(current_points);
+
+    var button = $(this);
+    var request = $.ajax({
+      method: "POST",
+      url: "/comments/" + current_comment_id + "/vote",
+      data: {value: 1}
+    });
+    request.done(function(msg){
+      console.log(msg);
+      // button.css("color","red");
+      current_points.text(msg);
+    });
+
+  });
+
+  $(".comment-detail").on("click","#downvote", function(e){
+    e.preventDefault();
+    var current_comment_id = $(this).closest(".comment-detail").attr("id");
+    console.log(current_comment_id);
+
+    var current_points = $(this).closest(".comment-detail").find(".points-small");
+    console.log(current_points);
+
+    var button = $(this);
+    var request = $.ajax({
+      method: "POST",
+      url: "/comments/" + current_comment_id + "/vote",
+      data: {value: -1}
+    });
+    request.done(function(msg){
+      console.log(msg);
+      // button.css("color","red");
+      current_points.text(msg);
+    });
+
+  });
+
 });
