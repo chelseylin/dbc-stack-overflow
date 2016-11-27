@@ -8,7 +8,7 @@ class Answer < ActiveRecord::Base
   # validation
   validates :description, :user_id, :question_id, { presence: true }
 
-  validate :valid_user
+  validate :valid_user, :uniq_best_answer
 
   def valid_user
     # creator of question cannot answer own question
@@ -21,6 +21,16 @@ class Answer < ActiveRecord::Base
     current_answerers = self.question.answers.map { |answer| answer.user_id }
     if current_answerers.include?(user_id)
       return errors.add :user, "cannot answer the same question more than once"
+    end
+  end
+
+  # check if best answer already exists
+  def uniq_best_answer
+    current_best_answer = self.question.best_answer
+    if current_best_answer && self.best_answer == 1
+      unless current_best_answer == self
+        errors.add :question, "can only have at most 1 best answer"
+      end
     end
   end
 

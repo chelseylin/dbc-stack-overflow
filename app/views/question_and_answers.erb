@@ -58,6 +58,11 @@
 
 <% @answers_sorted_by_votes = (@answers.sort_by { |answer| answer.vote_count }).reverse! %>
 
+<!-- promote best answer if exists -->
+<% if @question.best_answer %>
+  <% @answers_sorted_by_votes.unshift(@answers_sorted_by_votes.delete(@question.best_answer)) %>
+<% end %>
+
 <% @answers_sorted_by_votes.each do |answer| %>
   <div class="sidebar">
 
