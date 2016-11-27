@@ -18,7 +18,7 @@ function votabilityHelper(thingPressed, votableType, voteValue) {
   request.done(function(msg){
     console.log(msg)
     if(voteValue == 1){
-      var color = "green";
+      var color = "forestgreen";
     }else{
       var color = "red";
     }

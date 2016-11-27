@@ -96,7 +96,7 @@
   <div class="buttongroup">
     <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
       <form method="post" action="/question/<%= @question.id %>/answers/<%= answer.id %>">
-        <button id="best_answer_button" type="submit" name="best_answer">BEST ANSWER</button>
+        <button id="best_answer_button" type="submit" name="best_answer" class="styled-button">Select Best Answer</button>
       </form>
     <% end %>
   </div>
