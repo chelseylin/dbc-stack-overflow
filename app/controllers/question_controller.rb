@@ -44,15 +44,16 @@ post '/questions/:id/vote' do
   @user = User.find(session[:user_id])
 
   vote_count = @question.vote_count
-  puts "============"
-  p params[:value]
+  # puts "============"
+  # p params[:value]
+
+  @new_vote = Vote.create!(user_id: @user.id, target: @question, value: value)
   if request.xhr?
     if params[:value].to_i == 1
       value = 1
     else
       value = -1
     end
-    @new_vote = Vote.create!(user_id: @user.id, target: @question, value: value)
     if @new_vote.save
       return (vote_count + value).to_s
       # return @question.vote_count.to_s

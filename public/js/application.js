@@ -25,6 +25,9 @@ function votabilityHelper(thingPressed, votableType, voteValue) {
     thingPressed.css("color",color);
     targetPoints.text(msg);
   });
+  request.fail(function(msg){
+    alert("You may not vote on the same item more than once.");
+  });
 }
 
 $(document).ready(function() {
