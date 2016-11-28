@@ -38,4 +38,12 @@ class Question < ActiveRecord::Base
   def answered?
     !!(best_answer)
   end
+
+  def upvoted_by?(user_id)
+    !!(self.votes.find { |vote| vote.user_id == user_id && vote.value == 1 })
+  end
+
+  def downvoted_by?(user_id)
+    !!(self.votes.find { |vote| vote.user_id == user_id && vote.value == -1 })
+  end
 end

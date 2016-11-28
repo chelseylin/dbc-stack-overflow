@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :title, { null: false }
       t.string :description, { null: false }
       t.integer :user_id, { null: false }
+      t.integer :views, { default: 0 }
 
       t.timestamps
     end

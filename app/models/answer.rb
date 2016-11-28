@@ -42,4 +42,12 @@ class Answer < ActiveRecord::Base
       return votes
     end
   end
+
+  def upvoted_by?(user_id)
+    !!(self.votes.find { |vote| vote.user_id == user_id && vote.value == 1 })
+  end
+
+  def downvoted_by?(user_id)
+    !!(self.votes.find { |vote| vote.user_id == user_id && vote.value == -1 })
+  end
 end

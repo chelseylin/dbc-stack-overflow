@@ -14,7 +14,7 @@ get '/questions' do
   if params[:order] == 'date'
     @questions = Question.all.sort_by { |question| question.created_at }.reverse!
   elsif params[:order] == 'view'
-    @questions = Question.all.sort_by { |question| question.vote_count }.reverse!
+    @questions = Question.all.sort_by { |question| question.views }.reverse!
   else
     @questions = Question.all.sort_by { |question| question.vote_count }.reverse!
   end
@@ -36,6 +36,8 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
+  @question.views += 1
+  @question.save
   @answers = Answer.where("question_id = '#{params[:id]}'")
   erb :question_and_answers
 end

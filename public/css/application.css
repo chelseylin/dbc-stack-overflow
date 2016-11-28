@@ -456,3 +456,11 @@ form.inside-comment-q button, form.inside-comment-a button {
 .hidden {
   display: none;
 }
+
+.upvoted {
+  color: green;
+}
+
+.downvoted {
+  color: red;
+}

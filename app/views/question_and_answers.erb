@@ -1,13 +1,21 @@
 <div class = "question-container page" id = "<%=@question.id%>">
   <div class="sidebar">
     <button id="upvote">
-    	<i class="fa fa-chevron-up" aria-hidden="true"></i>
+      <% if @question.upvoted_by?(session[:user_id]) %>
+        <i class="fa fa-chevron-up upvoted" aria-hidden="true"></i>
+      <% else %>
+    	  <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      <% end %>
     </button>
 
     <span class="points"><%= @question.vote_count %></span>
 
     <button id="downvote">
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      <% if @question.downvoted_by?(session[:user_id]) %>
+        <i class="fa fa-chevron-down downvoted" aria-hidden="true"></i>
+      <% else %>
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      <% end %>
     </button>
   </div>
 
@@ -27,7 +35,11 @@
 
           <div class = "vote-button-container">
             <button id="upvote">
-              <i class="fa fa-chevron-up" aria-hidden="true"></i>
+              <% if comment.upvoted_by?(session[:user_id]) %>
+                <i class="fa fa-chevron-up upvoted" aria-hidden="true"></i>
+              <% else %>
+                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+              <% end %>
             </button>
 
             <span class="points-small">
@@ -35,7 +47,11 @@
             </span>
 
             <button id="downvote">
-              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              <% if comment.downvoted_by?(session[:user_id]) %>
+                <i class="fa fa-chevron-down downvoted" aria-hidden="true"></i>
+              <% else %>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              <% end %>
             </button>
           </div>
 
@@ -78,13 +94,21 @@
 
       <div class = "vote-button-container vote-button-container-answer">
         <button id="upvote">
-          <i class="fa fa-chevron-up" aria-hidden="true"></i>
+          <% if answer.upvoted_by?(session[:user_id]) %>
+            <i class="fa fa-chevron-up upvoted" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+          <% end %>
         </button>
         <span class="points-small">
           <%= answer.vote_count %>
         </span>
         <button id="downvote">
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          <% if answer.downvoted_by?(session[:user_id]) %>
+            <i class="fa fa-chevron-down downvoted" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          <% end %>
         </button>
       </div>
       <div class = "answer-detail" id="<%=answer.id%>">
@@ -117,13 +141,21 @@
             <div class = "comment-detail" id="<%=comment.id%>">
               <div class = "vote-button-container">
                 <button id="upvote">
-                  <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                  <% if comment.upvoted_by?(session[:user_id]) %>
+                    <i class="fa fa-chevron-up upvoted" aria-hidden="true"></i>
+                  <% else %>
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                  <% end %>
                 </button>
                 <span class="points-small">
                   <%= comment.vote_count %>
                 </span>
                 <button id="downvote">
-                  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  <% if comment.downvoted_by?(session[:user_id]) %>
+                    <i class="fa fa-chevron-down downvoted" aria-hidden="true"></i>
+                  <% else %>
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  <% end %>
                 </button>
               </div>
 
