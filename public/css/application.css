@@ -181,6 +181,10 @@ border-radius:5px;*/
   background-color: white;
 }
 
+.page {
+  overflow: hidden;
+}
+
 .article {
   padding-left: 10px;
   overflow: hidden;
@@ -233,8 +237,12 @@ p.count-p {
 }
 
 .points {
+  width: 40px;
+  height: 30px;
+  background-color: white;
+  color: coral;
   display:block;
-  margin:0;
+  margin: 5px 0 0 0;
 }
 
 .answered-flag {
@@ -248,14 +256,14 @@ p.count-p {
 .question-detail, .answer-detail {
   width: 73%;
   float:left;
+  border-bottom: 1px solid #ddd;
 }
 
 .answer-detail {
-  background:gainsboro;
+  background:white;
   padding:10px;
   width:85%;
   border-radius:3px;
-  margin-top:10px;
 }
 
 .float-clear {
@@ -266,7 +274,7 @@ p.count-p {
   border-left: 1px solid gray;
   font-size:90%;
   font-style: italic;
-  margin-left:60px;
+  margin-left:40px;
   padding-left:10px;
 }
 
@@ -284,9 +292,10 @@ p.count-p {
 .sidebar {
   float:left;
   text-align:center;
-  width:30px;
+  width:40px;
   height:30px;
   padding-right:20px;
+  margin-top: 5px;
 }
 
 .sidebar button {
@@ -299,7 +308,8 @@ background:white;
 .best-answer {
   color:forestgreen;
   font-size:150%;
-  padding-top:25px;
+  padding-top:20px;
+  padding-left: 15px;
 /*  display:inline;*/
 }
 .buttongroup {
@@ -316,8 +326,12 @@ background:white;
 .vote-button-container {
   width:20px;
   float:left;
-  margin-top:-17px;
+  margin-top:-3px;
   margin-right:20px;
+}
+
+.vote-button-container-answer {
+  margin-top: 5px;
 }
 
 .vote-button-container #upvote, 
@@ -338,7 +352,8 @@ background:white;
 
 .answer-text-box {
   margin-top:20px;
-  margin-left:50px;
+  margin-left:60px;
+  margin-bottom: 20px;
   width:500px;
 }
 
@@ -350,10 +365,7 @@ footer {
 }
 
 #new-question {
-  height:90px;
   padding:15px;
-  top: 70px;
-  right: 50px;
 }
 
 #new-question label {
@@ -372,14 +384,14 @@ footer {
   border: 1px solid black;
 }
 
-#new-question textarea {
+textarea.new-description {
   width: 660px;
   height: 250px;
   border: 1px solid black;
   margin-bottom: 10px
 }
 
-#new-question button {
+button.submit {
   width: 667px;
   height: 50px;
   color:white;
@@ -387,4 +399,20 @@ footer {
   margin: 0;
   padding: 5px;
   border-radius: 3px;
+}
+
+h3.question-title {
+  padding-bottom: 10px;
+  border-bottom: 2px solid lightgray;
+}
+
+.time-answer {
+  font-size: 90%;
+  color: black;
+}
+
+p.comment-a {
+  margin: 0;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }

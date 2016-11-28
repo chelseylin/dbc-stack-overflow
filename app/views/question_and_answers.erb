@@ -1,4 +1,4 @@
-<div class = "question-container" id = "<%=@question.id%>">
+<div class = "question-container page" id = "<%=@question.id%>">
   <div class="sidebar">
     <button id="upvote">
     	<i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -12,51 +12,45 @@
   </div>
 
   <div class = "question-detail">
-    <h3><%= @question.title %>&nbsp&nbsp<a href="/questions/<%= @question.id %>/comment/new">Comment on this question!</a></h3>
+    <h3 class="question-title"><%= @question.title %></h3>
     <p><%= @question.description %></p>
+    <a href="/questions/<%= @question.id %>/comment/new">add comment to question</a>
+
+    <% q_comments_by_time = @question.comments.order(:created_at) %>
+    <% q_comments_by_time.to_a.each do |comment| %>
+      <div class = "comment-detail" id="<%=comment.id%>">
+
+        <div class = "vote-button-container">
+          <button id="upvote">
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+          </button>
+
+          <span class="points-small">
+            <%= comment.vote_count %>
+          </span>
+
+          <button id="downvote">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <p class="comment-p"><%= comment.description %></p>
+        
+        <div style="padding-left:35px; color: gray"> 
+          <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
+        </div>
+      </div>
+    <%end%>
+
+    <h4 style="margin: 10px 0px 5px 0px">Answers</h4>
   </div>
-</div>
 
 <div class = "float-clear"></div>
-
-<% q_comments_by_time = @question.comments.order(:created_at) %>
-
-<% q_comments_by_time.to_a.each do |comment| %>
-  <div class="sidebar">
-
-  </div>
-
-  <div class = "comment-detail" id="<%=comment.id%>">
-
-    <div class = "vote-button-container">
-      <button id="upvote">
-        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-      </button>
-      <span class="points-small">
-        
-        <%= comment.vote_count %>
-      </span>
-      <button id="downvote">
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <p>
-      <%= comment.description %> 
-    </p>
-    <div style="padding-left:35px"> 
-      - <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
-    </div>
-   
-  </div>
-
-  <%end%>
 <% @answers.to_a.each do |answer| %>
   <% if answer.best_answer == 1 %>
     <% @best_answer_selected = true %>
   <% end %>
 <% end %>
-
 
 <% @answers_sorted_by_votes = (@answers.sort_by { |answer| answer.vote_count }).reverse! %>
 
@@ -66,90 +60,89 @@
 <% end %>
 
 <% @answers_sorted_by_votes.each do |answer| %>
-  <div class="sidebar">
-
-  <% if answer.best_answer == 1 %>
-    <div class = "best-answer">
-      <i class="fa fa-check" aria-hidden="true"></i>
+  <div class="answer" style="overflow: hidden" id="<%=answer.id%>">
+    <div class="sidebar">
+       <% if answer.best_answer == 1 %>
+          <div class = "best-answer">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+      <% end %>
     </div>
-  <% end %>
 
-  </div>
-
-  <div class = "answer-detail" id="<%=answer.id%>">
-    <p>
-
-    <div class = "vote-button-container">
+    <div class = "vote-button-container vote-button-container-answer">
       <button id="upvote">
         <i class="fa fa-chevron-up" aria-hidden="true"></i>
       </button>
       <span class="points-small">
-        
         <%= answer.vote_count %>
       </span>
       <button id="downvote">
         <i class="fa fa-chevron-down" aria-hidden="true"></i>
       </button>
     </div>
-    
-      <%= answer.description %> <a href="/answers/<%= answer.id %>/comment/new">Comment on this answer</a>
-    </p>
-    <span class = "user_timestamp_container">
-      <span style="float:right">
-        <a href="/user_profile/<%= answer.user_id %>"><%= answer.user.user_name %></a> posted at <%= answer.created_at.strftime("%k:%M %b %e, %Y") %>
-      </span>
-    </span>
-  </div>
-  <div class="buttongroup">
-    <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
-      <form method="post" action="/question/<%= @question.id %>/answers/<%= answer.id %>">
-        <button id="best_answer_button" type="submit" name="best_answer" class="styled-button">Select Best Answer</button>
-      </form>
-    <% end %>
-  </div>
+    <div class = "answer-detail" id="<%=answer.id%>">
+      <p class="comment-a"><%= answer.description %></p>
 
-  <div class = "float-clear"></div>
-
-  <% comments_by_time = answer.comments.order(:created_at) %>
-
-  <% comments_by_time.to_a.each do |comment| %>
-    <!-- <div class="sidebar">
-
-    </div> -->
-
-    <div class = "comment-detail" id="<%=comment.id%>">
-      <div class = "vote-button-container">
-        <button id="upvote">
-          <i class="fa fa-chevron-up" aria-hidden="true"></i>
-        </button>
-        <span class="points-small">
-        
-          <%= comment.vote_count %>
+      <span class = "user_timestamp_container time-answer">
+        <span style="float:right">
+          <a href="/user_profile/<%= answer.user_id %>"><%= answer.user.user_name %></a> answered at <%= answer.created_at.strftime("%k:%M %b %e, %Y") %>
         </span>
-        <button id="downvote">
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </button>
+        <a href="/answers/<%= answer.id %>/comment/new">add comment to answer</a>
+      </span>
+
+      <div class="buttongroup">
+        <% if @question.user_id == session[:user_id] && !@best_answer_selected %>
+          <form method="post" action="/question/<%= @question.id %>/answers/<%= answer.id %>">
+            <button id="best_answer_button" type="submit" name="best_answer" class="styled-button">Select Best Answer</button>
+          </form>
+        <% end %>
       </div>
 
-      <p>
-        <%= comment.description %> 
-      </p>
-      <div style="padding-left:35px">
-        - <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
-      </div>
-     
+      <div class = "float-clear"></div>
+
+      <% comments_by_time = answer.comments.order(:created_at) %>
+      <% comments_by_time.to_a.each do |comment| %>
+        <div class = "comment-detail" id="<%=comment.id%>">
+          <div class = "vote-button-container">
+            <button id="upvote">
+              <i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </button>
+            <span class="points-small">
+              <%= comment.vote_count %>
+            </span>
+            <button id="downvote">
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <p><%= comment.description %></p>
+
+          <div style="padding-left:35px">
+            <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
+          </div>
+        </div> 
+      <% end %>
     </div>
-  <% end %>
+    <!-- ends loop -->
+  </div>
+<% end %>
 
-  <!-- ends loop -->
-  <% end %>
+<% if @errors %>
+  <div class="errors" style="margin: 10px 0 0 60px">
+    <span>Something went wrong:</span>
+    <ul class="error-list">
+      <% @errors.each do |error| %>
+        <li class="error-item"><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-
-<% if session[:user_id] && (@question.user_id != session[:user_id]) && !(@question.answered_by?(session[:user_id])) %>
+<% if session[:user_id] && (@question.user_id != session[:user_id]) && !(@question.answered_by?(session[:user_id])) && !(@question.answered?) %>
   <div class="answer-text-box">
     <form method="post" action="/question/<%= @question.id %>/answers">
       <textarea name="answertext" cols="50" rows="5" placeholder="Your answer..."></textarea>
-      <input type="submit" value="Post your Answer" class="styled-button">
+      <input style="margin-top: 10px; color: white" type="submit" value="Post your Answer" class="styled-button">
     </form>
   </div>
 <% end %>

@@ -14,8 +14,10 @@ post "/question/:id/answers" do
     redirect "/questions/#{params[:id]}"
   else
     status 422
+    @question = Question.find(params[:id])
+    @answers = Answer.where("question_id = '#{params[:id]}'")
     @errors = new_answer.errors.full_messages
-    erb :index
+    erb :question_and_answers
   end
 end
 
