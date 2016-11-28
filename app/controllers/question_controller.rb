@@ -11,10 +11,17 @@ get '/' do
 end
 
 get '/questions' do
-  @questions = Question.all
+  if params[:order] == 'date'
+    @questions = Question.all.sort_by { |question| question.created_at }.reverse!
+  elsif params[:order] == 'view'
+    @questions = Question.all.sort_by { |question| question.vote_count }.reverse!
+  else
+    @questions = Question.all.sort_by { |question| question.vote_count }.reverse!
+  end
   @timestamps = @questions.to_a.map do |question|
     question.created_at.strftime('%a %d %b %Y')
   end
+  return erb :questions, layout: false if request.xhr?
   erb :index
 end
 

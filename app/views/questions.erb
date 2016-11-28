@@ -1,0 +1,3 @@
+<% @questions.each_with_index do |iteration_question, i| %>
+  <%= erb(:_question_template, locals: {question: iteration_question, i: i}) %>
+<% end %>

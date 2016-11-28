@@ -78,4 +78,21 @@ $(document).ready(function() {
     votabilityHelper(buttonPressed, "comment", -1);
   });
 
+  // Order questions by demand
+  $("a.tag-button").on("click", function(event) {
+    var request;
+
+    event.preventDefault();
+    $("a.tag-button").removeClass("active");
+    $(this).addClass("active");
+
+    request = $.ajax({
+      url: $(this).attr("href"),
+      method: "GET"
+    })
+
+    request.done(function(questions) {
+      $("div.question-container").html(questions);
+    })
+  })
 });

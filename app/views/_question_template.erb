@@ -11,11 +11,12 @@
     <p class="description"><%= stub(question.description) %></p>
     <p class="user_timestamp_container">
      <!--  <button> -->
-        <form action="questions/<%= question.id %>" method="get">
+<!--         <form action="questions/<%= question.id %>" method="get">
           <input type="submit" value="answer" class="styled-button">
-        </form>
+        </form> -->
       <!-- </button> -->
     	<span class="user_name">
+        asked by
     		<a href = "/user_profile/<%= question.user.id %>">
     			<%= question.user.user_name %>
     		</a>
@@ -25,5 +26,4 @@
     	</span>
     </p>
   </span>
-  </
 </article>

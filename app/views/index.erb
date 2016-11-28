@@ -1,14 +1,24 @@
-<p>
-<%if !session[:user_id]%>
-  <div class="register">
-    <form action="/register" method="post">
-      <input type="text" name="user[user_name]" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit" value="Register" class="blue-button">
-    </form>
-  </div>
-<%end%>
-</p>
+<header>
+  <%if !session[:user_id]%>
+    <div class="register">
+      <form action="/register" method="post">
+        <input type="text" name="user[user_name]" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Register" class="blue-button">
+      </form>
+    </div>
+  <%end%>
+
+  <h3 style = "float: left">Find answers to your most wild programming questions</h3>
+
+  <h2 style = "float:left">Questions:</h2>
+  <button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
+
+  <a class = "styled-button tag-button active" href="/questions?order=vote">Most Voted</a>
+  <a class = "styled-button tag-button" href="/questions?order=date">Newest</a>
+  <a class = "styled-button tag-button" href="/questions?order=view">Hottest</a>
+  <div class="float-clear"></div>
+</header>
 
 <% if @errors %>
   <span>Something went wrong:</span>
@@ -18,16 +28,7 @@
     <% end %>
   </ul>
 <% else %>
-
-  <h2 style = "float:left">Questions:</h2>
-  <button class = "styled-button ask-question-button"><a href="/questions/new">Ask a Question</a></button>
-  <div class="float-clear"></div>
-
-  <% @questions_sorted_by_votes = (@questions.sort_by { |question| question.vote_count }).reverse! %>
-
   <div class='question-container'>
-    <% @questions_sorted_by_votes.each_with_index do |iteration_question, i| %>
-      <%= erb(:_question_template, locals: {question: iteration_question, i: i}) %>
-    <% end %>
+    <%= erb :questions, layout: false %>
   </div>
 <% end %>
