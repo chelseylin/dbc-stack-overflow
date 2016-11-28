@@ -1,14 +1,19 @@
 function votabilityHelper(thingPressed, votableType, voteValue) {
   if(votableType == "question"){
     var pointDiv = ".points";
-    var suffix = "container";
+    var suffix = "-container";
+  } else if (votableType == "answer") {
+    var votableType = "answer";
+    var pointDiv = ".points-small";
+    var suffix = ""
   } else {
     var pointDiv = ".points-small";
-    var suffix = "detail"
+    var suffix = "-detail"
   }
 
-  var targetId = $(thingPressed).closest("." +votableType+"-"+suffix).attr("id");
-  var targetPoints = $(thingPressed).closest("." + votableType + "-" + suffix).find(pointDiv);
+  var targetId = $(thingPressed).closest("." +votableType+suffix).attr("id");
+  var targetPoints = $(thingPressed).closest("." + votableType + suffix).find(pointDiv);
+  console.log(targetPoints)
 
   var request = $.ajax({
     method: "POST",
@@ -53,13 +58,13 @@ $(document).ready(function() {
     $(this).hide();
   });
 
-  $(".answer-detail").on("click","#upvote", function(e){
+  $(".answer").on("click","#upvote", function(e){
     e.preventDefault();
     var buttonPressed = $(this);
     votabilityHelper(buttonPressed, "answer", 1);
   });
 
-  $(".answer-detail").on("click","#downvote", function(e){
+  $(".answer").on("click","#downvote", function(e){
     e.preventDefault();
     var buttonPressed = $(this);
     votabilityHelper(buttonPressed, "answer", -1);

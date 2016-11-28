@@ -45,8 +45,8 @@ a {
 }
 
 .fa-stack-overflow {
-  color: orange; 
-  float: left; 
+  color: coral;
+  float: left;
   margin: 13px 10px 13px 10px;
   font-size: 180%;
 }
@@ -334,7 +334,7 @@ background:white;
   margin-top: 5px;
 }
 
-.vote-button-container #upvote, 
+.vote-button-container #upvote,
 .vote-button-container #downvote {
   font-size:50%;
   background:none;

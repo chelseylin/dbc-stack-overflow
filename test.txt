@@ -1,0 +1,424 @@
+D, [2016-11-28T08:37:39.573157 #2319] DEBUG -- :   User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:39.574418 #2319] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Answer"]]
+D, [2016-11-28T08:37:39.575974 #2319] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:37:39.576992 #2319] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:39.577934 #2319] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:39.579505 #2319] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:37:39 -0800] "GET /questions/1 HTTP/1.1" 200 8984 0.1822
+D, [2016-11-28T08:37:48.129424 #2322] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:37:48.134988 #2322] DEBUG -- :    (0.2ms)  BEGIN
+D, [2016-11-28T08:37:48.138250 #2322] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 10], ["updated_at", "2016-11-28 16:37:48.136501"], ["id", 1]]
+D, [2016-11-28T08:37:48.139152 #2322] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:37:48.174179 #2322] DEBUG -- :   Vote Load (0.4ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 1], ["target_type", "Question"]]
+D, [2016-11-28T08:37:48.185440 #2322] DEBUG -- :   Comment Load (0.5ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 1], ["content_type", "Question"]]
+D, [2016-11-28T08:37:48.193172 #2322] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 1], ["target_type", "Comment"]]
+D, [2016-11-28T08:37:48.200221 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:48.204062 #2322] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Comment"]]
+D, [2016-11-28T08:37:48.204808 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:37:48.206166 #2322] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Comment"]]
+D, [2016-11-28T08:37:48.206959 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:37:48.208096 #2322] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '1')
+D, [2016-11-28T08:37:48.215044 #2322] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 1], ["target_type", "Answer"]]
+D, [2016-11-28T08:37:48.216043 #2322] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Answer"]]
+D, [2016-11-28T08:37:48.217726 #2322] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 1]]
+D, [2016-11-28T08:37:48.221383 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:48.223463 #2322] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 1], ["content_type", "Answer"]]
+D, [2016-11-28T08:37:48.224842 #2322] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Comment"]]
+D, [2016-11-28T08:37:48.225659 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:48.226636 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:48.227863 #2322] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Answer"]]
+D, [2016-11-28T08:37:48.228979 #2322] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:37:48.229840 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:48.230369 #2322] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:48.232201 #2322] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:37:48 -0800] "GET /questions/1 HTTP/1.1" 200 8984 0.1691
+127.0.0.1 - - [28/Nov/2016:08:37:50 -0800] "GET / HTTP/1.1" 302 - 0.0110
+D, [2016-11-28T08:37:50.965594 #2326] DEBUG -- :   Question Load (0.4ms)  SELECT "questions".* FROM "questions"
+D, [2016-11-28T08:37:50.990240 #2326] DEBUG -- :   Vote Load (0.5ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:37:50.996535 #2326] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Question"]]
+D, [2016-11-28T08:37:50.997335 #2326] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Question"]]
+D, [2016-11-28T08:37:50.998113 #2326] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Question"]]
+D, [2016-11-28T08:37:50.998748 #2326] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 6], ["target_type", "Question"]]
+D, [2016-11-28T08:37:50.999496 #2326] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Question"]]
+D, [2016-11-28T08:37:51.000081 #2326] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 8], ["target_type", "Question"]]
+D, [2016-11-28T08:37:51.000725 #2326] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 9], ["target_type", "Question"]]
+D, [2016-11-28T08:37:51.001304 #2326] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 1], ["target_type", "Question"]]
+D, [2016-11-28T08:37:51.030967 #2326] DEBUG -- :    (0.3ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 1]]
+D, [2016-11-28T08:37:51.032156 #2326] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 1]]
+D, [2016-11-28T08:37:51.047270 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:37:51.051623 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:37:51.052215 #2326] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:37:51.053228 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:37:51.054673 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:37:51.055563 #2326] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:37:51.056969 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:51.058514 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 3]]
+D, [2016-11-28T08:37:51.059179 #2326] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 3]]
+D, [2016-11-28T08:37:51.060054 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:51.061570 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 9]]
+D, [2016-11-28T08:37:51.062347 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+D, [2016-11-28T08:37:51.063905 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 7]]
+D, [2016-11-28T08:37:51.064698 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+D, [2016-11-28T08:37:51.066166 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 8]]
+D, [2016-11-28T08:37:51.066868 #2326] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+D, [2016-11-28T08:37:51.068232 #2326] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 5]]
+D, [2016-11-28T08:37:51.068785 #2326] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 5]]
+D, [2016-11-28T08:37:51.069642 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:51.070911 #2326] DEBUG -- :    (0.1ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 6]]
+D, [2016-11-28T08:37:51.071578 #2326] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 6]]
+D, [2016-11-28T08:37:51.072396 #2326] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:51.075885 #2326] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:37:51 -0800] "GET /questions HTTP/1.1" 200 11614 0.1662
+D, [2016-11-28T08:37:53.216622 #2328] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:53.222562 #2328] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:37:53.225981 #2328] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 1], ["updated_at", "2016-11-28 16:37:53.224188"], ["id", 2]]
+D, [2016-11-28T08:37:53.226976 #2328] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:37:53.262270 #2328] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:37:53.271615 #2328] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:37:53.274310 #2328] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:37:53.281525 #2328] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:37:53.282492 #2328] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:37:53.284260 #2328] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:37:53.295246 #2328] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:53.300099 #2328] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:37:53.301158 #2328] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:53.302333 #2328] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:37:53.303627 #2328] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:37:53.304554 #2328] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:37:53.305320 #2328] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:37:53.307370 #2328] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:37:53 -0800] "GET /questions/2 HTTP/1.1" 200 6086 0.1564
+D, [2016-11-28T08:38:02.069822 #2331] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:38:02.076236 #2331] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:38:02.079780 #2331] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 2], ["updated_at", "2016-11-28 16:38:02.077869"], ["id", 2]]
+D, [2016-11-28T08:38:02.080719 #2331] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:38:02.118212 #2331] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:38:02.129076 #2331] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:38:02.131272 #2331] DEBUG -- :   Answer Load (0.5ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:38:02.138071 #2331] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:38:02.138930 #2331] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:38:02.141444 #2331] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:38:02.150731 #2331] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:38:02.155382 #2331] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:38:02.156476 #2331] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:38:02.158058 #2331] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:38:02.159424 #2331] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:38:02.160351 #2331] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:38:02.160979 #2331] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:38:02.163014 #2331] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:38:02 -0800] "GET /questions/2 HTTP/1.1" 200 6086 0.1601
+D, [2016-11-28T08:45:17.140272 #2489] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:45:17.145949 #2489] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:45:17.149651 #2489] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 3], ["updated_at", "2016-11-28 16:45:17.147834"], ["id", 2]]
+D, [2016-11-28T08:45:17.150598 #2489] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:45:17.184692 #2489] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:45:17.193874 #2489] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:45:17.195951 #2489] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:45:17.203279 #2489] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:45:17.204162 #2489] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:45:17.205737 #2489] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:45:17.214402 #2489] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:45:17.219148 #2489] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:45:17.220106 #2489] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:45:17.221695 #2489] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:45:17.222953 #2489] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:45:17.223854 #2489] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:45:17.224453 #2489] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:45:17.226447 #2489] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:45:17 -0800] "GET /questions/2 HTTP/1.1" 200 6086 0.1527
+D, [2016-11-28T08:46:26.203723 #2520] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:46:26.210689 #2520] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:46:26.214165 #2520] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 4], ["updated_at", "2016-11-28 16:46:26.212264"], ["id", 2]]
+D, [2016-11-28T08:46:26.215131 #2520] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:46:26.252765 #2520] DEBUG -- :   Vote Load (0.6ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:46:26.263478 #2520] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:46:26.265478 #2520] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:46:26.273145 #2520] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:46:26.273896 #2520] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:46:26.275399 #2520] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:46:26.286009 #2520] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:46:26.291019 #2520] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:46:26.291968 #2520] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:46:26.293280 #2520] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:46:26.294564 #2520] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:46:26.295497 #2520] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:46:26.296154 #2520] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:46:26.298621 #2520] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:46:26 -0800] "GET /questions/2 HTTP/1.1" 200 6086 0.1657
+D, [2016-11-28T08:47:06.864588 #2542] DEBUG -- :   Question Load (0.4ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:06.871899 #2542] DEBUG -- :    (0.2ms)  BEGIN
+D, [2016-11-28T08:47:06.875417 #2542] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 5], ["updated_at", "2016-11-28 16:47:06.873582"], ["id", 2]]
+D, [2016-11-28T08:47:06.876306 #2542] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:47:06.913731 #2542] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:47:06.925039 #2542] DEBUG -- :   Comment Load (0.4ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:47:06.927018 #2542] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:47:06.933950 #2542] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:06.934793 #2542] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:06.937227 #2542] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:47:06.946616 #2542] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:06.951364 #2542] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:06.952579 #2542] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:06.954310 #2542] DEBUG -- :   Comment Load (0.5ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:06.956048 #2542] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:06.957175 #2542] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:06.957881 #2542] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:06.959999 #2542] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:47:06 -0800] "GET /questions/2 HTTP/1.1" 200 6086 0.1621
+D, [2016-11-28T08:47:08.872233 #2545] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 4]]
+D, [2016-11-28T08:47:08.882498 #2545] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:08.912037 #2545] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+"1"
+D, [2016-11-28T08:47:08.918523 #2545] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:08.921369 #2545] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("user_id", "target_id", "target_type", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 10], ["target_id", 4], ["target_type", "Answer"], ["value", 1], ["created_at", "2016-11-28 16:47:08.920193"], ["updated_at", "2016-11-28 16:47:08.920193"]]
+D, [2016-11-28T08:47:08.922191 #2545] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:47:08.922473 #2545] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:08.923049 #2545] DEBUG -- :    (0.1ms)  COMMIT
+127.0.0.1 - - [28/Nov/2016:08:47:08 -0800] "POST /answers/4/vote HTTP/1.1" 200 1 0.1119
+D, [2016-11-28T08:47:12.422859 #2547] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:12.434004 #2547] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:12.465777 #2547] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+"1"
+D, [2016-11-28T08:47:12.472235 #2547] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:12.475259 #2547] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("user_id", "target_id", "target_type", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["user_id", 10], ["target_id", 3], ["target_type", "Answer"], ["value", 1], ["created_at", "2016-11-28 16:47:12.474068"], ["updated_at", "2016-11-28 16:47:12.474068"]]
+D, [2016-11-28T08:47:12.476205 #2547] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:47:12.476573 #2547] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:12.477190 #2547] DEBUG -- :    (0.1ms)  COMMIT
+127.0.0.1 - - [28/Nov/2016:08:47:12 -0800] "POST /answers/3/vote HTTP/1.1" 200 1 0.1184
+D, [2016-11-28T08:47:14.003574 #2549] DEBUG -- :   Question Load (0.6ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:14.009777 #2549] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:14.013269 #2549] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 6], ["updated_at", "2016-11-28 16:47:14.011341"], ["id", 2]]
+D, [2016-11-28T08:47:14.014212 #2549] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:47:14.049183 #2549] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:47:14.059114 #2549] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:47:14.061181 #2549] DEBUG -- :   Answer Load (0.5ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:47:14.068031 #2549] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:14.068971 #2549] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:14.071193 #2549] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:47:14.080679 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:14.085231 #2549] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:14.086258 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:14.087722 #2549] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:14.089237 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:14.090250 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:14.090919 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:14.092940 #2549] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:47:14 -0800] "GET /questions/2 HTTP/1.1" 200 6102 0.1542
+D, [2016-11-28T08:47:22.715772 #2553] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:22.721118 #2553] DEBUG -- :   SQL (0.4ms)  INSERT INTO "comments" ("description", "user_id", "content_type", "content_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["description", "aaa"], ["user_id", 10], ["content_type", "Answer"], ["content_id", 4], ["created_at", "2016-11-28 16:47:22.717698"], ["updated_at", "2016-11-28 16:47:22.717698"]]
+D, [2016-11-28T08:47:22.722293 #2553] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:47:22.751553 #2553] DEBUG -- :    (0.2ms)  BEGIN
+D, [2016-11-28T08:47:22.759346 #2553] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Comment"]]
+D, [2016-11-28T08:47:22.760939 #2553] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("value", "user_id", "target_id", "target_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["value", 1], ["user_id", 10], ["target_id", 5], ["target_type", "Comment"], ["created_at", "2016-11-28 16:47:22.759976"], ["updated_at", "2016-11-28 16:47:22.759976"]]
+D, [2016-11-28T08:47:22.761801 #2553] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:47:22.770542 #2553] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 4]]
+D, [2016-11-28T08:47:22.781347 #2553] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:47:22 -0800] "POST /answers/4/comment HTTP/1.1" 200 474 0.1336
+D, [2016-11-28T08:47:27.293929 #2556] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:27.299513 #2556] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:47:27.302731 #2556] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 7], ["updated_at", "2016-11-28 16:47:27.300982"], ["id", 2]]
+D, [2016-11-28T08:47:27.303690 #2556] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:47:27.337418 #2556] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:47:27.346825 #2556] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:47:27.348789 #2556] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:47:27.355872 #2556] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:27.356880 #2556] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:47:27.358466 #2556] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:47:27.367407 #2556] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:27.372448 #2556] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:27.378273 #2556] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Comment"]]
+D, [2016-11-28T08:47:27.379439 #2556] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:27.380560 #2556] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:27.381695 #2556] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:47:27.382842 #2556] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:47:27.383711 #2556] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:47:27.384318 #2556] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:47:27.385893 #2556] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:47:27 -0800] "GET /questions/2 HTTP/1.1" 200 6880 0.1584
+D, [2016-11-28T08:50:16.396050 #2698] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:16.418875 #2698] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:16.422190 #2698] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 8], ["updated_at", "2016-11-28 16:50:16.420437"], ["id", 2]]
+D, [2016-11-28T08:50:16.423088 #2698] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:50:16.439440 #2698] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:50:16.449430 #2698] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:50:16.451318 #2698] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:50:16.458344 #2698] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:16.459184 #2698] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:16.460712 #2698] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:50:16.469942 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:16.474896 #2698] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:16.480692 #2698] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:16.482205 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:16.483344 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:16.484498 #2698] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:16.485676 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:16.486560 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:16.487189 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:16.488943 #2698] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:50:16 -0800] "GET /questions/2 HTTP/1.1" 200 6880 0.1561
+D, [2016-11-28T08:50:20.920083 #2701] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:20.943756 #2701] DEBUG -- :   SQL (0.3ms)  INSERT INTO "comments" ("description", "user_id", "content_type", "content_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["description", "bbb"], ["user_id", 10], ["content_type", "Answer"], ["content_id", 4], ["created_at", "2016-11-28 16:50:20.940336"], ["updated_at", "2016-11-28 16:50:20.940336"]]
+D, [2016-11-28T08:50:20.944874 #2701] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:50:20.954839 #2701] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:20.962273 #2701] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 6], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:20.963857 #2701] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("value", "user_id", "target_id", "target_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["value", 1], ["user_id", 10], ["target_id", 6], ["target_type", "Comment"], ["created_at", "2016-11-28 16:50:20.962901"], ["updated_at", "2016-11-28 16:50:20.962901"]]
+D, [2016-11-28T08:50:20.964654 #2701] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:50:20.965048 #2701] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:20.965692 #2701] DEBUG -- :    (0.1ms)  COMMIT
+D, [2016-11-28T08:50:20.973964 #2701] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 4]]
+D, [2016-11-28T08:50:20.984764 #2701] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:50:20 -0800] "POST /answers/4/comment HTTP/1.1" 200 474 0.1127
+D, [2016-11-28T08:50:26.594802 #2704] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:26.619039 #2704] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:26.622219 #2704] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 9], ["updated_at", "2016-11-28 16:50:26.620502"], ["id", 2]]
+D, [2016-11-28T08:50:26.623104 #2704] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:50:26.639439 #2704] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:50:26.649320 #2704] DEBUG -- :   Comment Load (0.7ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:50:26.651398 #2704] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:50:26.658455 #2704] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:26.659340 #2704] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:26.660922 #2704] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:50:26.670988 #2704] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:26.676023 #2704] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:26.682961 #2704] DEBUG -- :   Vote Load (0.4ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:26.684194 #2704] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:26.685271 #2704] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 6], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:26.685844 #2704] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:26.686825 #2704] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:26.688033 #2704] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:26.689407 #2704] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:26.690424 #2704] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:26.691070 #2704] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:26.692636 #2704] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:50:26 -0800] "GET /questions/2 HTTP/1.1" 200 7658 0.1460
+D, [2016-11-28T08:50:56.093956 #2712] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:56.109374 #2712] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:56.121255 #2712] DEBUG -- :   User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:50:56.129438 #2712] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:50:56.131095 #2712] DEBUG -- :   SQL (0.3ms)  INSERT INTO "answers" ("description", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["description", "aaaa"], ["user_id", 10], ["question_id", 2], ["created_at", "2016-11-28 16:50:56.130022"], ["updated_at", "2016-11-28 16:50:56.130022"]]
+D, [2016-11-28T08:50:56.131993 #2712] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:50:56.140457 #2712] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:56.143021 #2712] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 10], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:56.144414 #2712] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("value", "user_id", "target_id", "target_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["value", 1], ["user_id", 10], ["target_id", 10], ["target_type", "Answer"], ["created_at", "2016-11-28 16:50:56.143518"], ["updated_at", "2016-11-28 16:50:56.143518"]]
+D, [2016-11-28T08:50:56.145199 #2712] DEBUG -- :    (0.4ms)  COMMIT
+127.0.0.1 - - [28/Nov/2016:08:50:56 -0800] "POST /question/2/answers HTTP/1.1" 303 - 0.1182
+D, [2016-11-28T08:50:56.665193 #2715] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:56.671289 #2715] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:50:56.674648 #2715] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 10], ["updated_at", "2016-11-28 16:50:56.672831"], ["id", 2]]
+D, [2016-11-28T08:50:56.675579 #2715] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:50:56.691548 #2715] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:50:56.701200 #2715] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 2], ["content_type", "Question"]]
+D, [2016-11-28T08:50:56.703051 #2715] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '2')
+D, [2016-11-28T08:50:56.709514 #2715] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:56.710335 #2715] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:56.711013 #2715] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 10], ["target_type", "Answer"]]
+D, [2016-11-28T08:50:56.712545 #2715] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:50:56.721244 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:56.725790 #2715] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 10], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:56.726689 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:56.727821 #2715] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:56.733967 #2715] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:56.735027 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:56.736013 #2715] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 6], ["target_type", "Comment"]]
+D, [2016-11-28T08:50:56.736500 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:56.737403 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:56.738538 #2715] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 3], ["content_type", "Answer"]]
+D, [2016-11-28T08:50:56.739701 #2715] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:56.740505 #2715] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:50:56.741012 #2715] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:50:56.741491 #2715] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:50:56.742917 #2715] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:50:56 -0800] "GET /questions/2 HTTP/1.1" 200 8787 0.1441
+127.0.0.1 - - [28/Nov/2016:08:52:02 -0800] "GET / HTTP/1.1" 302 - 0.0102
+D, [2016-11-28T08:52:03.118109 #2803] DEBUG -- :   Question Load (0.8ms)  SELECT "questions".* FROM "questions"
+D, [2016-11-28T08:52:03.158789 #2803] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 3], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.164454 #2803] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.165254 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 5], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.165852 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 6], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.166480 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.167078 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 8], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.167613 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 9], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.168154 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 1], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.168917 #2803] DEBUG -- :   Vote Load (0.1ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 2], ["target_type", "Question"]]
+D, [2016-11-28T08:52:03.178112 #2803] DEBUG -- :    (0.3ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 1]]
+D, [2016-11-28T08:52:03.179135 #2803] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 1]]
+D, [2016-11-28T08:52:03.193163 #2803] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:52:03.197655 #2803] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:52:03.198235 #2803] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 2]]
+D, [2016-11-28T08:52:03.199137 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:52:03.200637 #2803] DEBUG -- :    (0.3ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:52:03.201208 #2803] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:52:03.202056 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:52:03.203460 #2803] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 3]]
+D, [2016-11-28T08:52:03.203990 #2803] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 3]]
+D, [2016-11-28T08:52:03.204828 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+D, [2016-11-28T08:52:03.206204 #2803] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 8]]
+D, [2016-11-28T08:52:03.206927 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 8]]
+D, [2016-11-28T08:52:03.208280 #2803] DEBUG -- :    (0.2ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 7]]
+D, [2016-11-28T08:52:03.209096 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+D, [2016-11-28T08:52:03.210476 #2803] DEBUG -- :    (0.1ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 9]]
+D, [2016-11-28T08:52:03.211545 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 9]]
+D, [2016-11-28T08:52:03.213002 #2803] DEBUG -- :    (0.1ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 5]]
+D, [2016-11-28T08:52:03.213527 #2803] DEBUG -- :   Answer Load (0.2ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 5]]
+D, [2016-11-28T08:52:03.214268 #2803] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:52:03.215488 #2803] DEBUG -- :    (0.1ms)  SELECT COUNT(*) FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 6]]
+D, [2016-11-28T08:52:03.215992 #2803] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 6]]
+D, [2016-11-28T08:52:03.216791 #2803] DEBUG -- :   User Load (0.1ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+D, [2016-11-28T08:52:03.220717 #2803] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:52:03 -0800] "GET /questions HTTP/1.1" 200 11615 0.1419
+D, [2016-11-28T08:52:10.261481 #2806] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 4]]
+D, [2016-11-28T08:52:10.266940 #2806] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:52:10.270498 #2806] DEBUG -- :   SQL (0.3ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 1], ["updated_at", "2016-11-28 16:52:10.268519"], ["id", 4]]
+D, [2016-11-28T08:52:10.271392 #2806] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:52:10.287800 #2806] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Question"]]
+D, [2016-11-28T08:52:10.296973 #2806] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Question"]]
+D, [2016-11-28T08:52:10.298875 #2806] DEBUG -- :   Answer Load (0.3ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '4')
+D, [2016-11-28T08:52:10.305531 #2806] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Answer"]]
+D, [2016-11-28T08:52:10.307142 #2806] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:52:10.316052 #2806] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:52:10.321170 #2806] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 7], ["content_type", "Answer"]]
+D, [2016-11-28T08:52:10.322529 #2806] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:52:10.323470 #2806] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:52:10.325543 #2806] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:52:10 -0800] "GET /questions/4 HTTP/1.1" 200 4419 0.1333
+D, [2016-11-28T08:52:15.194829 #2809] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:52:15.199198 #2809] DEBUG -- :   SQL (0.3ms)  INSERT INTO "comments" ("description", "user_id", "content_type", "content_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["description", "aaa"], ["user_id", 10], ["content_type", "Answer"], ["content_id", 7], ["created_at", "2016-11-28 16:52:15.196245"], ["updated_at", "2016-11-28 16:52:15.196245"]]
+D, [2016-11-28T08:52:15.200283 #2809] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:52:15.210301 #2809] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:52:15.217407 #2809] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Comment"]]
+D, [2016-11-28T08:52:15.218921 #2809] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("value", "user_id", "target_id", "target_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["value", 1], ["user_id", 10], ["target_id", 7], ["target_type", "Comment"], ["created_at", "2016-11-28 16:52:15.218014"], ["updated_at", "2016-11-28 16:52:15.218014"]]
+D, [2016-11-28T08:52:15.219722 #2809] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:52:15.220050 #2809] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:52:15.220633 #2809] DEBUG -- :    (0.1ms)  COMMIT
+D, [2016-11-28T08:52:15.228195 #2809] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 7]]
+D, [2016-11-28T08:52:15.238448 #2809] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:52:15 -0800] "POST /answers/7/comment HTTP/1.1" 200 474 0.1095
+clear
+D, [2016-11-28T08:53:35.491094 #2930] DEBUG -- :   Question Load (0.3ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT 1  [["id", 4]]
+D, [2016-11-28T08:53:35.496650 #2930] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:53:35.500065 #2930] DEBUG -- :   SQL (0.2ms)  UPDATE "questions" SET "views" = $1, "updated_at" = $2 WHERE "questions"."id" = $3  [["views", 2], ["updated_at", "2016-11-28 16:53:35.498128"], ["id", 4]]
+D, [2016-11-28T08:53:35.501128 #2930] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:53:35.517463 #2930] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 4], ["target_type", "Question"]]
+D, [2016-11-28T08:53:35.527499 #2930] DEBUG -- :   Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 4], ["content_type", "Question"]]
+D, [2016-11-28T08:53:35.529502 #2930] DEBUG -- :   Answer Load (0.4ms)  SELECT "answers".* FROM "answers" WHERE (question_id = '4')
+D, [2016-11-28T08:53:35.536449 #2930] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Answer"]]
+D, [2016-11-28T08:53:35.538129 #2930] DEBUG -- :   Answer Load (0.1ms)  SELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1  [["question_id", 4]]
+D, [2016-11-28T08:53:35.549241 #2930] DEBUG -- :   User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:53:35.554166 #2930] DEBUG -- :   Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."content_id" = $1 AND "comments"."content_type" = $2  ORDER BY "comments"."created_at" ASC  [["content_id", 7], ["content_type", "Answer"]]
+D, [2016-11-28T08:53:35.579958 #2930] DEBUG -- :   Vote Load (0.2ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 7], ["target_type", "Comment"]]
+D, [2016-11-28T08:53:35.581134 #2930] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:53:35.582601 #2930] DEBUG -- :   User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+D, [2016-11-28T08:53:35.584026 #2930] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+D, [2016-11-28T08:53:35.585832 #2930] DEBUG -- :   User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:53:35 -0800] "GET /questions/4 HTTP/1.1" 200 5197 0.1604
+D, [2016-11-28T08:53:39.032597 #2933] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:53:39.037326 #2933] DEBUG -- :   SQL (0.3ms)  INSERT INTO "comments" ("description", "user_id", "content_type", "content_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["description", "bbb"], ["user_id", 10], ["content_type", "Answer"], ["content_id", 7], ["created_at", "2016-11-28 16:53:39.034128"], ["updated_at", "2016-11-28 16:53:39.034128"]]
+D, [2016-11-28T08:53:39.038449 #2933] DEBUG -- :    (0.5ms)  COMMIT
+D, [2016-11-28T08:53:39.048359 #2933] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:53:39.055616 #2933] DEBUG -- :   Vote Load (0.3ms)  SELECT "votes".* FROM "votes" WHERE "votes"."target_id" = $1 AND "votes"."target_type" = $2  [["target_id", 8], ["target_type", "Comment"]]
+D, [2016-11-28T08:53:39.057218 #2933] DEBUG -- :   SQL (0.2ms)  INSERT INTO "votes" ("value", "user_id", "target_id", "target_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["value", 1], ["user_id", 10], ["target_id", 8], ["target_type", "Comment"], ["created_at", "2016-11-28 16:53:39.056276"], ["updated_at", "2016-11-28 16:53:39.056276"]]
+D, [2016-11-28T08:53:39.058127 #2933] DEBUG -- :    (0.4ms)  COMMIT
+D, [2016-11-28T08:53:39.058502 #2933] DEBUG -- :    (0.1ms)  BEGIN
+D, [2016-11-28T08:53:39.059207 #2933] DEBUG -- :    (0.1ms)  COMMIT
+D, [2016-11-28T08:53:39.067217 #2933] DEBUG -- :   Answer Load (0.3ms)  SELECT  "answers".* FROM "answers" WHERE "answers"."id" = $1 LIMIT 1  [["id", 7]]
+D, [2016-11-28T08:53:39.079004 #2933] DEBUG -- :   User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 10]]
+127.0.0.1 - - [28/Nov/2016:08:53:39 -0800] "POST /answers/7/comment HTTP/1.1" 200 474 0.1106
