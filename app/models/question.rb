@@ -34,4 +34,8 @@ class Question < ActiveRecord::Base
   def best_answer
     self.answers.find { |answer| answer.best_answer == 1 }
   end
+
+  def answered?
+    !!(best_answer)
+  end
 end

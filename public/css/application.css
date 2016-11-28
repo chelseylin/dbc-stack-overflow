@@ -1,4 +1,5 @@
 body {
+  background-color: #ddd;
   padding:20px;
   font-family: 'Ubuntu', sans-serif;
   min-width: 860px;
@@ -40,7 +41,7 @@ nav ul li a {
 
 a {
   text-decoration:none;
-  color: blue;
+  color: #477bfd;
 }
 
 .fa-stack-overflow {
@@ -67,6 +68,7 @@ h1.header {
 /* HEADER */
 
 header {
+  background-color: #ddd;
   margin-top:50px;
   height:130px;
 }
@@ -78,25 +80,36 @@ header h2 {
   z-index: 1;
 }
 
+h2.log-in {
+  text-align: center;
+}
+
 header h3 {
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: 10px;
   font-size: 1.2em;
   position: absolute;
   min-width: 700px;
 }
 
+span.wild {
+  font-size: 1.5em;
+  font-weight: 20;
+  color: coral;
+}
+
 .login {
+  margin: 0 auto;
   width: 160px;
   height:90px;
   padding:15px;
 }
 
 .register{
+  float:right;
   width: 160px;
   height:90px;
   padding:15px;
-  position: absolute;
   top: 70px;
   right: 50px;
 /*border:2px solid gray;
@@ -112,9 +125,9 @@ border-radius:5px;*/
   border-bottom: 1px solid gray;
 }
 
-.register input[type='submit'] {
-  float:right;
-  width:100%;
+.register input[type='submit'], .login input[type='submit'] {
+  float:left;
+  width:99%;
   background: darkgray;
   color: white;
 /*  border:none;
@@ -146,13 +159,13 @@ border-radius:5px;*/
   margin: 95px 10px 0px 10px;
   height: 24px;
   padding: 5px 10px 5px 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .active {
   border: 1px solid gray;
   border-bottom: 1px solid white;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 /* BODY */
@@ -165,19 +178,29 @@ border-radius:5px;*/
 
 .question-container{
   border-top: 1px solid gray;
+  background-color: white;
 }
 
-article {
+.article {
+  padding-left: 10px;
+  overflow: hidden;
   margin:auto;
   clear:both;
+  background-color: white;
+  border-bottom: 1px dashed #ddd;
 }
 
-.vote-count, .points {
+p.vote {
+  font-size: 70%;
+  margin: 0;
+  padding: 5px 0 0 0;
+}
+
+.count, .points {
   font-size:140%;
   margin-top:20px;
-  width:30px;
-  height:30px;
-  background-color:coral;
+  width:60px;
+  height:60px;
   color:white;
   float:left;
   text-align:center;
@@ -185,15 +208,46 @@ article {
   border-radius:3px;
 }
 
+.vote-count {
+  background-color:coral;
+}
+
+.view-count {
+  background-color:lightblue;
+}
+
+.answer-count {
+  background-color: lightgray;
+
+}
+
+.count p {
+  margin: 0;
+  padding: 5px 0 0 0;
+}
+
+p.count-p {
+  margin: 0;
+  padding: 5px 0 0 0;
+  font-size: 50%;
+}
+
 .points {
   display:block;
   margin:0;
 }
 
+.answered-flag {
+  color: #d677d1;
+  font-size: 80%;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
 .question-detail, .answer-detail {
-  width:90%;
+  width: 73%;
   float:left;
-  border-bottom: 1px dashed #ddd;
 }
 
 .answer-detail {
@@ -293,4 +347,44 @@ footer {
   border-top: 1px solid gray;
   text-align:right;
   padding-top:10px;
+}
+
+#new-question {
+  height:90px;
+  padding:15px;
+  top: 70px;
+  right: 50px;
+}
+
+#new-question label {
+  color:white;
+  background: darkgray;
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+#new-question input {
+  width: 600px;
+  height: 25px;
+  margin-bottom:10px;
+  margin-left:10px;
+  border: 1px solid black;
+}
+
+#new-question textarea {
+  width: 660px;
+  height: 250px;
+  border: 1px solid black;
+  margin-bottom: 10px
+}
+
+#new-question button {
+  width: 667px;
+  height: 50px;
+  color:white;
+  background: darkgray;
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px;
 }

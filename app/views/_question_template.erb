@@ -1,12 +1,24 @@
-<article id="<%= question.id %>">
-  <span class="vote-count">
-    <%= question.vote_count %>
-  </span>
-  <span class="question-detail">
+<div class="article" id="<%= question.id %>">
+  <div class="count vote-count">
+    <p class="count-p">Votes</p>
+    <p><%= question.vote_count %></p>
+  </div>
+  <div class="count view-count">
+    <p class="count-p">Views</p>
+    <p><%= question.vote_count %></p>
+  </div>
+  <div class="count answer-count">
+    <p class="count-p">Answers</p>
+    <p><%= question.answers.size %></p>
+  </div>
+  <div class="question-detail">
     <h3>
       <a href='/questions/<%= question.id %>'>
         <%= question.title %>
       </a>
+      <% if question.answered? %>
+        <p class="answered-flag">Answered</a>
+      <% end %>
     </h3>
     <p class="description"><%= stub(question.description) %></p>
     <p class="user_timestamp_container">
@@ -25,5 +37,5 @@
     		on <%= @timestamps[i] %>
     	</span>
     </p>
-  </span>
-</article>
+  </div>
+</div>
