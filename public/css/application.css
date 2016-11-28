@@ -256,7 +256,6 @@ p.count-p {
 .question-detail, .answer-detail {
   width: 73%;
   float:left;
-  border-bottom: 1px solid #ddd;
 }
 
 .answer-detail {
@@ -264,6 +263,7 @@ p.count-p {
   padding:10px;
   width:85%;
   border-radius:3px;
+  border-bottom: 1px solid #ddd;
 }
 
 .float-clear {
@@ -437,4 +437,22 @@ th.normal {
 table.profile {
   width: 860px;
   margin-bottom: 20px;
+}
+
+form.inside-comment-q, form.inside-comment-a {
+  margin-top: 5px;
+}
+
+form.inside-comment-q textarea, form.inside-comment-a textarea {
+  width: 300px;
+  height: 100px;
+}
+
+form.inside-comment-q button, form.inside-comment-a button {
+  width: 308px;
+  height: 30px;
+}
+
+.hidden {
+  display: none;
 }

@@ -95,4 +95,69 @@ $(document).ready(function() {
       $("div.question-container").html(questions);
     })
   })
+
+  // open up create comment box
+  $("a.comment-question").on("click", function(event) {
+    event.preventDefault();
+
+    if ($("form.inside-comment-q").hasClass("hidden")) {
+      $("form.inside-comment-q").removeClass("hidden");
+    } else {
+      $("form.inside-comment-q").addClass("hidden");
+    }
+  })
+
+  $("form.inside-comment-q").submit(function(event) {
+    var request;
+    event.preventDefault();
+    $("form.inside-comment-q").addClass("hidden");
+    request = $.ajax({
+      url: $(this).attr("action"),
+      method: "POST",
+      data: $(this).serialize()
+    })
+
+    request.done(function(newComment) {
+      $(".question-comments").append(newComment);
+    })
+
+    request.always(function() {
+      $("form.inside-comment-q").find("textarea").val("");
+    })
+  })
+
+  $(".all-answers").on("click", "a.comment-answer", function(event) {
+    event.preventDefault();
+    var commentBox = $(this).closest(".answer-detail").find(".inside-comment-a");
+    console.log($(this))
+    console.log($(this).closest(".answer-detail"))
+    console.log(commentBox)
+
+    if (commentBox.hasClass("hidden")) {
+      commentBox.removeClass("hidden");
+    } else {
+      commentBox.addClass("hidden");
+    }
+  })
+
+  $(".all-answers").on("submit", "form.inside-comment-a", function(event) {
+    var request;
+    var commentData;
+    var answerId = $(this).closest(".answer").attr("id");
+
+    event.preventDefault();
+    $(this).addClass("hidden");
+    commentData = $(this).serialize();
+    $(this).find("textarea").val("");
+
+    request = $.ajax({
+      url: $(this).attr("action"),
+      method: "POST",
+      data: commentData
+    })
+
+    request.done(function(newComment) {
+      $("div.answer#" + answerId).find(".answer-comments").append(newComment);
+    })
+  })
 });

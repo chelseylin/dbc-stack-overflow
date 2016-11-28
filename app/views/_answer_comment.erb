@@ -1,0 +1,19 @@
+<div class = "comment-detail" id="<%=comment.id%>">
+  <div class = "vote-button-container">
+    <button id="upvote">
+      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+    <span class="points-small">
+      <%= comment.vote_count %>
+    </span>
+    <button id="downvote">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <p><%= comment.description %></p>
+
+  <div style="padding-left:35px">
+    <a href='/user_profile/<%= comment.user_id %>'><%= User.find(comment.user_id).user_name %></a> posted at <%= comment.created_at.strftime("%k:%M %b %e, %Y") %>
+  </div>
+</div> 

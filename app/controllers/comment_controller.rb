@@ -6,8 +6,10 @@ post '/:content_type/:content_id/comment' do
   Vote.create(value: 1, user_id: session[:user_id], target: comment)
   if params[:content_type] == "answers"
     answer = Answer.find(params[:content_id])
+    return erb :_answer_comment, locals: { comment: comment }, layout: false if request.xhr?
     @question_id = answer.question_id
   else
+    return erb :_question_comment, locals: { comment: comment }, layout: false if request.xhr?
     @question_id = params[:content_id]
   end
 
