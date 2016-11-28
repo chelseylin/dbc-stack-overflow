@@ -416,3 +416,25 @@ p.comment-a {
   margin-top: 3px;
   margin-bottom: 10px;
 }
+
+table, th, td {
+  padding: 3px;
+  border: 1px solid black;
+}
+
+th {
+  background-color: black;
+  color: white;
+  width: 150px;
+  text-align: left;
+}
+
+th.normal {
+  background-color: white;
+  color: black;
+}
+
+table.profile {
+  width: 860px;
+  margin-bottom: 20px;
+}

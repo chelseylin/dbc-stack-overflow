@@ -20,15 +20,6 @@
   <div class="float-clear"></div>
 </header>
 
-<% if @errors %>
-  <span>Something went wrong:</span>
-  <ul class="error-list">
-    <% @errors.each do |error| %>
-      <li class="error-item"><%= error %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <div class='question-container'>
-    <%= erb :questions, layout: false %>
-  </div>
-<% end %>
+<div class='question-container'>
+  <%= erb :questions, layout: false %>
+</div>

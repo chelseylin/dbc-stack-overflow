@@ -1,11 +1,25 @@
-<h2>Overflow user information for '<%= @user.user_name %>' :</h2>
-<ul>
-	<li>Member since: <%= @user.created_at %></li>
-	<% if @topQuestion %>
-		<li><%= @user.user_name %>'s top rated post is <%= @topQuestion.title %> posted on <%= @topQuestion.created_at%> with <%= @topQuestion.vote_count %> total votes</li>
-		<li><%= @user.user_name %>'s lowest rated post is <%= @lowQuestion.title %> posted on <%= @lowQuestion.created_at%> with <%= @lowQuestion.vote_count %> total votes</li>
-	<% else %>
-		<li><%= @user.user_name %> does not have any posts yet</li>
-	<% end %>
-	<li>Total post karma for <%= @user.user_name %> is <%= @total_post_karma %> votes</li>
-</ul>
+<h2>Overflow User Information for: <strong><%= @user.user_name %></strong></h2>
+<table>
+	<tr>
+    <th>Member since</th>
+    <td><%= @user.created_at.strftime("%k:%M %b %e, %Y") %></td>
+  </tr>
+  <% if @topQuestion %>
+    <tr>
+      <th>Top Rated Post</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th class="normal">&nbsp&nbsp&nbsp&nbspTitle</th>
+      <td><%= @topQuestion.title %></td>
+    </tr>
+    <tr>
+      <th class="normal">&nbsp&nbsp&nbsp&nbspVotes</th>
+      <td><%= @topQuestion.vote_count %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <th>Post Karma</th>
+    <td><%= @total_post_karma %></td>
+  </tr>
+</table>

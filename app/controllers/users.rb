@@ -23,7 +23,7 @@ post '/register' do
     redirect '/profile'
   else
     @errors = @user.errors.full_messages
-    erb :index
+    erb :error
   end
 end
 

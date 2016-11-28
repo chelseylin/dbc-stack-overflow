@@ -1,18 +1,30 @@
 <h2>My Questions</h2>
 
-<main role="main">
-	<ul class="question-list">
-		<% @user.questions.each do |question| %>
-			<li class="question-item">
-				<p class="entry-stub"><%= stub(question.description) %></p>
-				<!-- the uri/route below has not been created yet -->
-				<a href="/questions/<%= question.id %>" class="question-title"><%= question.title %></a>
-					<% question.answers.each do |answer| %>
-						<% if answer.best_answer == 1 %>
-							<span class="best-answered-by"><%="Top answer by #{User.find(answer.user_id).user_name}"%></span>
-						<% end %>
-					<% end %>
-			</li>
-		<% end %>
-	</ul>
-</main>
+<% @user.questions.each do |question| %>
+	<table class="profile">
+		<tr>
+			<th>Title</th>
+		</tr>
+		<tr>
+			<td><a href="/questions/<%= question.id %>"><%= question.title %></a></td>
+		</tr>
+		<tr>
+			<th>Content</th>
+		</tr>
+		<tr>
+			<td><%= question.description %></td>
+		</tr>
+		<tr>
+			<th>Answered By</th>
+		</tr>
+		<tr>
+			<td>
+				<% if question.best_answer %>
+					<%= User.find_by_id(question.best_answer.user_id).user_name%>
+				<% else %>
+					No best answer has been selected yet
+				<% end %>
+			</td>
+		</tr>
+	</table>
+<% end %>
