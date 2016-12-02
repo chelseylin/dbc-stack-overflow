@@ -7,6 +7,7 @@ function votabilityHelper(thingPressed, votableType, voteValue) {
     var pointDiv = ".points-small";
     var suffix = ""
   } else {
+    var votableType = "comment";
     var pointDiv = ".points-small";
     var suffix = "-detail"
   }
@@ -70,14 +71,14 @@ $(document).ready(function() {
     votabilityHelper(buttonPressed, "answer", -1);
   });
 
-  $(".comment-detail").on("click","#upvote", function(e){
+  $(".all-answers").on("click",".comment-detail #upvote", function(e){
     e.preventDefault();
     var buttonPressed = $(this);
     console.log(buttonPressed)
     votabilityHelper(buttonPressed, "comment", 1);
   });
 
-  $(".comment-detail").on("click","#downvote", function(e){
+  $(".all-answers").on("click",".comment-detail #downvote", function(e){
     e.preventDefault();
     var buttonPressed = $(this);
     votabilityHelper(buttonPressed, "comment", -1);
@@ -134,9 +135,6 @@ $(document).ready(function() {
   $(".all-answers").on("click", "a.comment-answer", function(event) {
     event.preventDefault();
     var commentBox = $(this).closest(".answer-detail").find(".inside-comment-a");
-    console.log($(this))
-    console.log($(this).closest(".answer-detail"))
-    console.log(commentBox)
 
     if (commentBox.hasClass("hidden")) {
       commentBox.removeClass("hidden");
@@ -162,7 +160,9 @@ $(document).ready(function() {
     })
 
     request.done(function(newComment) {
-      $("div.answer#" + answerId).find(".answer-comments").append(newComment);
+      console.log($(".question-comments"))
+      console.log($("#answer-"+answerId))
+      $("#answer-" + answerId).find(".answer-comments").append(newComment);
     })
   })
 });
